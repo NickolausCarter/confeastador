@@ -1,0 +1,23 @@
+{
+  "name": "confeastador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickolausCarter/confeastador.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickolausCarter/confeastador/issues"
+  },
+  "homepage": "https://github.com/NickolausCarter/confeastador#readme",
+  "dependencies": {
+    "create-react-app": "^4.0.3"
+  }
+}
