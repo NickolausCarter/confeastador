@@ -8,33 +8,32 @@ type User {
   _id: ID
   username: String
   email: String
-  friendCount: Int
-  thoughts: [Thought]
-  friends: [User]
+  reservations: [Reservation]
 }
 
-type Thought {
+type Reservation {
   _id: ID
-  thoughtText: String
+  restaurant: Restaurant
   createdAt: String
+  reservationDate: String
   username: String
-  reactionCount: Int
-  reactions: [Reaction]
 }
 
-type Reaction {
+type Restaurant {
   _id: ID
-  reactionBody: String
-  createdAt: String
-  username: String
+  restaurantName: String
+  cuisine: String
+  zipcode: String
 }
 
 type Query {
   me: User
   users: [User]
   user(username: String!): User
-  thoughts(username: String): [Thought]
-  thought(_id: ID!): Thought
+  reservations(username: String): [Reservation]
+  reservation(_id: ID!): Reservation
+  restaurants: [Restaurant]
+  restaurant(_id: ID!): Restaurant
 }
 
 type Auth {
@@ -45,9 +44,8 @@ type Auth {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  addThought(thoughtText: String!): Thought
-  addReaction(thoughtId: ID!, reactionBody: String!): Thought
-  addFriend(friendId: ID!): User
+  addReservation(restaurant: String!, createdAt: String!, reservationDate: String!, username: String!): Reservation
+  removeReservation(_id: ID!): Reservation
 }
 `;
 
