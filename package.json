@@ -24,5 +24,8 @@
   "homepage": "https://github.com/NickolausCarter/confeastador#readme",
   "dependencies": {
     "create-react-app": "^4.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
   }
 }
