@@ -24,6 +24,7 @@ type Restaurant {
   restaurantName: String
   cuisine: String
   zipcode: String
+  seats: Int
 }
 
 type Query {
