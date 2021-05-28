@@ -27,6 +27,7 @@ const Signup = () => {
     event.preventDefault();
 
     try {
+      // execute addUser mutation and pass in variable data from form
       const { data } = await addUser({
         variables: { ...formState },
       });
