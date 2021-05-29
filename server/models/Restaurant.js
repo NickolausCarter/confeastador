@@ -11,7 +11,7 @@ const restaurantSchema = new Schema(
       type: String
     },
     zipcode: {
-      type: String,
+      type: Number,
       required: true,
       minlength: 5,
       maxlength: 5

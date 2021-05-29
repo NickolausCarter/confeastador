@@ -2,14 +2,14 @@
   "name": "confeastador",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "heroku-postbuild": "cd client && npm run build"
+    "seed": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/NickolausCarter/confeastador#readme",
   "dependencies": {
-    "create-react-app": "^4.0.3"
+    "create-react-app": "^4.0.3",
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^6.2.0"

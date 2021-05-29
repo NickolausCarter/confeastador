@@ -13,7 +13,7 @@ type User {
 
 type Reservation {
   _id: ID
-  restaurant: Restaurant
+  restaurant: [Restaurant]
   createdAt: String
   reservationDate: String
   username: String
@@ -45,7 +45,7 @@ type Auth {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  addReservation(restaurant: String!, createdAt: String!, reservationDate: String!, username: String!): Reservation
+  addReservation(restaurant: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation
 }
 `;
