@@ -4,9 +4,12 @@ const Restaurant = require('./Restaurant');
 
 const reservationSchema = new Schema(
   {
-    restaurant: {
-      type: Schema.Types.ObjectId
-    },
+    restaurant: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Restaurant'
+      }
+    ],
     createdAt: {
       type: Date,
       default: Date.now,

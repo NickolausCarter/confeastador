@@ -14,9 +14,10 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    reservations: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Reservation.find(params).sort({ createdAt: -1 });
+    // reservations: async (parent, { username }) => {
+    //   const params = username ? { username } : {};
+    reservations: async()=> {
+      return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
       return (await Reservation.findOne({ _id }).populate("restaurant"));
