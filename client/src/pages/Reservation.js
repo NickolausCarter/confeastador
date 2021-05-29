@@ -1,4 +1,5 @@
 import React from "react";
+import { QUERY_RESTAURANTS } from "../utils/queries";
 
 function Reservation() {
   function clikedSearch(){
