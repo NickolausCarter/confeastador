@@ -20,7 +20,7 @@ const resolvers = {
       return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
-      return (await Reservation.findOne({ _id }).populate("restaurant"));
+      return (await Reservation.findOne({ _id }).populate("restaurants"));
     },
     // get all users
     users: async () => {

@@ -1,9 +1,7 @@
 import React from "react";
 
-function Nav() {
-  function showSearch() {
-    //if (Auth.loggedIn()) {
-    return (
+function Home() {
+  return (
       <div>
         <textarea
           id="search-text"
@@ -16,25 +14,7 @@ function Nav() {
         </button>
       </div>
     );
-    /*} else {
-      return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">Signup</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      );
-    }*/
-  }
-
-  return (
-    <header className="flex-row px-1">
-      <nav>{showSearch()}</nav>
-    </header>
-  );
 }
 
-export default Nav;
+  
+export default Home;

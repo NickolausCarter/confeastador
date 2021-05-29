@@ -17,12 +17,12 @@ db.once("open", async () => {
     _id: mongoose.Types.ObjectId("60b0739f54794b7fcf03829e"),
     username: "John_Smith",
     email: "jsmith@gmail.com",
-    password: "passwrod123",
+    password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
   });
   for (let i = 0; i < 2; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
-    const password = "passwrod123"; //faker.internet.password();
+    const password = `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`; //faker.internet.password();
 
     userData.push({ username, email, password });
   }
