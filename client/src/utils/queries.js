@@ -1,7 +1,14 @@
-// import gql from "graphql-tag";
+import gql from "graphql-tag";
 
-// export const QUERY_RESTAURANT = gql`
-//   {
-//     restaurants: [Restaurant]
-//   }
-// `;
+export const QUERY_RESTAURANT = gql`
+  query restaurants{
+    restaurants{
+      _id,
+      restaurantName,
+      cuisine,
+      zipcode,
+      seats
+    }
+  }
+`;
+
