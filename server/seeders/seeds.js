@@ -1,75 +1,86 @@
-const faker = require('faker');
+const faker = require("faker");
+const mongoose = require("mongoose");
+const db = require("../config/connection");
+const { User, Reservation, Restaurant } = require("../models");
+const dateFormat = require("../utils/dateFormat");
 
-const db = require('../config/connection');
-const { Thought, User } = require('../models');
-
-db.once('open', async () => {
-  await Thought.deleteMany({});
+db.once("open", async () => {
   await User.deleteMany({});
+  await Reservation.deleteMany({});
+  await Restaurant.deleteMany({});
 
+  //=========================================================
   // create user data
+  //=========================================================
   const userData = [];
-
-  for (let i = 0; i < 50; i += 1) {
+  userData.push({
+    _id: mongoose.Types.ObjectId("60b0739f54794b7fcf03829e"),
+    username: "John_Smith",
+    email: "jsmith@gmail.com",
+    password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
+  });
+  for (let i = 0; i < 2; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
-    const password = faker.internet.password();
+    const password = `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`; //faker.internet.password();
 
     userData.push({ username, email, password });
   }
 
+  //console.log(userData);
   const createdUsers = await User.collection.insertMany(userData);
+  console.log(createdUsers);
 
-  // create friends
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
+  //=========================================================
+  // Restaurant data
+  //=========================================================
+  const restaurantData = [];
+  restaurantData.push({
+    restaurantName: "Dans",
+    cuisine: "Burger and fries",
+    zipcode: "78723",
+    seats: 6,
+  });
+  restaurantData.push({
+    restaurantName: "Carolines",
+    cuisine: "Beef Steak Ragu",
+    zipcode: "78720",
+    seats: 8,
+  });
+  restaurantData.push({
+    restaurantName: "Razoos",
+    cuisine: "Crawfish Etoufee",
+    zipcode: "78660",
+    seats: 4,
+  });
 
-    let friendId = userId;
+  //console.log(resturantData);
+  const createdRestaurants = await Restaurant.collection.insertMany(
+    restaurantData
+  );
+  console.log(createdRestaurants);
 
-    while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
-    }
+  //=========================================================
+  // Reservation data
+  //=========================================================
+  const reservationData = [
+    {
+      restaurant: createdRestaurants.ops[0],
+      reservationDate: "05/31/2021",
+      username: createdUsers.ops[0].username,
+    },
+    {
+      restaurant: createdRestaurants.ops[0],
+      reservationDate: "06/01/2021",
+      username: createdUsers.ops[0].username,
+    },
+  ];
+  //console.log(reservationData);
+  const createdReservations = await Reservation.collection.insertMany(
+    reservationData
+  );
+  console.log(createdReservations);
 
-    await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  }
-
-  // create thoughts
-  let createdThoughts = [];
-  for (let i = 0; i < 100; i += 1) {
-    const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
-
-    const createdThought = await Thought.create({ thoughtText, username });
-
-    const updatedUser = await User.updateOne(
-      { _id: userId },
-      { $push: { thoughts: createdThought._id } }
-    );
-
-    createdThoughts.push(createdThought);
-  }
-
-  // create reactions
-  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username } = createdUsers.ops[randomUserIndex];
-
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
-      { runValidators: true }
-    );
-  }
-
-  console.log('all done!');
+  console.log("all done!!");
   process.exit(0);
 });

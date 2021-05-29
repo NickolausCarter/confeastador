@@ -1,4 +1,5 @@
 const User = require('./User');
-const Thought = require('./Thought');
+const Reservation = require('./Reservation');
+const Restaurant = require('./Restaurant')
 
-module.exports = { User, Thought };
+module.exports = { User, Reservation, Restaurant };
