@@ -43,5 +43,12 @@ export const reducer = (state, action) => {
         ...state,
         currentCategory: action.currentCategory
       };
+
+    default:
+      return state;
   }
-}
+};
+
+export function useProductReducer(initialState) {
+  return useReducer(reducer, initialState)
+};
