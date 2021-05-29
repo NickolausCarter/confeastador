@@ -45,7 +45,7 @@ type Auth {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  addReservation(restaurantId: ID!, reservationDate: String!): Reservation
+  addReservation(restaurant: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation
 }
 `;
