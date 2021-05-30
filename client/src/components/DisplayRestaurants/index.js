@@ -8,12 +8,34 @@ function DisplayRestaurants() {
     if (error) return `Error! ${error.message}`;
       return (
         <div name="restaurant">
+                      <table>
+              <tr>
+                  <td>
+                    Restaurant Name
+                  </td>
+                  <td>
+                    Cuisine
+                  </td>
+                  <td>
+                    Locaiton Zipcode
+                  </td>
+              </tr>
         {data.restaurants.map((oneRestaurant) => (
-          <p>
-            {oneRestaurant.restaurantName} - {oneRestaurant.cuisine} -
-            {oneRestaurant.zipcode}
-          </p>
+
+              <tr>
+                  <td>
+                      {oneRestaurant.restaurantName}
+                  </td>
+                  <td>
+                      {oneRestaurant.cuisine} 
+                  </td>
+                  <td>
+                      {oneRestaurant.zipcode}
+                  </td>
+              </tr>
+         
         ))}
+         </table>
       </div>
       );
 }

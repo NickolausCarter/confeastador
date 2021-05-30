@@ -14,13 +14,11 @@ db.once("open", async () => {
   //=========================================================
   const userData = [];
   userData.push({
-    _id: mongoose.Types.ObjectId("60b0739f54794b7fcf03829e"),
     username: "John_Smith",
     email: "jsmith@gmail.com",
     password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
   });
   userData.push({
-      _id: mongoose.Types.ObjectId("60b0739f54794b7fcf03829f"),
       username: "natalia",
       email: "natalia@gmail.com",
       password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
