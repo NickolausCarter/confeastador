@@ -1,12 +1,14 @@
-import React from "react";
-import { QUERY_RESTAURANT } from "../utils/queries";
-import { useQuery } from "@apollo/react-hooks";
+import React, { useState } from 'react';
+
+import DisplayRestaurants from "../components/DisplayRestaurants";
 
 function Reservation() {
+  const [showRest, setShowRest] = useState(0);
   function clikedSearch(){
     console.log("SEARCH HAS BEEN CLICKED");
+    setShowRest(true);
   }
-  const { data } = useQuery(QUERY_RESTAURANT);
+  
   return (
     <div>
       <textarea
@@ -18,13 +20,11 @@ function Reservation() {
       <button id="bttn-search" name="bttn-search" onClick={clikedSearch}>
         Search for a restaurant
       </button>
-
-      <div name="restaurant">
-        {data.restaurants.map(oneRestaurant => (
-          <p>
-            {oneRestaurant.restaurantName} - {oneRestaurant.cuisine} - {oneRestaurant.zipcode}
-          </p>
-        ))}
+      <div>
+        {showRest
+          ?<DisplayRestaurants />
+          : 'nothing to see'
+        }
       </div>
     </div>
   );
