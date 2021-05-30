@@ -8,7 +8,10 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("reservations").populate("restaurant");
+          .populate({
+            path: 'reservations',
+            populate: {path: 'restaurant'}
+          });
 
         return userData;
       }
@@ -23,13 +26,19 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find().select("-__v -password").populate("reservations");
+      return User.find().select("-__v -password").populate({
+        path: 'reservations',
+        populate: {path: 'restaurant'}
+      });
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("reservations").populate("restaurant");
+        .populate({
+          path: 'reservations',
+          populate: {path: 'restaurant'}
+        });
     },
     // get all users
     restaurants: async () => {
