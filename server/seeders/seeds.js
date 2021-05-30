@@ -19,6 +19,12 @@ db.once("open", async () => {
     email: "jsmith@gmail.com",
     password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
   });
+  userData.push({
+      _id: mongoose.Types.ObjectId("60b0739f54794b7fcf03829f"),
+      username: "natalia",
+      email: "natalia@gmail.com",
+      password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
+    });
   for (let i = 0; i < 2; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
@@ -70,9 +76,9 @@ db.once("open", async () => {
       username: createdUsers.ops[0].username,
     },
     {
-      restaurant: createdRestaurants.ops[0],
+      restaurant: createdRestaurants.ops[1],
       reservationDate: "06/01/2021",
-      username: createdUsers.ops[0].username,
+      username: createdUsers.ops[1].username,
     },
   ];
   //console.log(reservationData);

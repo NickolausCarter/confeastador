@@ -3,10 +3,16 @@ import { QUERY_RESTAURANT } from "../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 
 function Reservation() {
+  
   function clikedSearch(){
     console.log("SEARCH HAS BEEN CLICKED");
   }
-  const { data } = useQuery(QUERY_RESTAURANT);
+  
+  
+  const { loading, error, data } = useQuery(QUERY_RESTAURANT);
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+ 
   return (
     <div>
       <textarea
@@ -20,9 +26,10 @@ function Reservation() {
       </button>
 
       <div name="restaurant">
-        {data.restaurants.map(oneRestaurant => (
+        {data.restaurants.map((oneRestaurant) => (
           <p>
-            {oneRestaurant.restaurantName} - {oneRestaurant.cuisine} - {oneRestaurant.zipcode}
+            {oneRestaurant.restaurantName} - {oneRestaurant.cuisine} -
+            {oneRestaurant.zipcode}
           </p>
         ))}
       </div>
