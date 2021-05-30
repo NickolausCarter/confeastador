@@ -23,13 +23,13 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find().select("-__v -password").populate("reservation");
+      return User.find().select("-__v -password").populate("reservations");
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("reservations");
+        .populate("reservations").populate("restaurant");
     },
     // get all users
     restaurants: async () => {
@@ -75,7 +75,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { reservations: reservation._id } },
+          { $push: { reservations: reservation} },
           { new: true }
         );
 
