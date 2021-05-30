@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("reservations");
+          .populate("reservations").populate("restaurant");
 
         return userData;
       }
@@ -19,7 +19,7 @@ const resolvers = {
        return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
-      return (await Reservation.findOne({ _id }).populate("restaurant"));
+      return (await Reservation.findById({ _id }).populate("restaurant"));
     },
     // get all users
     users: async () => {
