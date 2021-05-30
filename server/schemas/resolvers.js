@@ -14,13 +14,12 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    // reservations: async (parent, { username }) => {
-    //   const params = username ? { username } : {};
-    reservations: async()=> {
-      return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
+    reservations: async (parent, { username }) => {
+    const params = username ? { username } : {};
+       return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
-      return (await Reservation.findOne({ _id }).populate("restaurants"));
+      return (await Reservation.findOne({ _id }).populate("restaurant"));
     },
     // get all users
     users: async () => {
@@ -63,6 +62,10 @@ const resolvers = {
 
       return { token, user };
     },
+    addRestaurant: async (parent, args) => {
+      const restaurant = await Restaurant.create(args);
+      return restaurant
+    },
     addReservation: async (parent, args, context) => {
       if (context.user) {
         const reservation = await Reservation.create({
@@ -81,13 +84,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeReservation: async (parent, args, context) => {
+    removeReservation: async (parent, {_id}, context) => {
       if (context.user) {
-        const updatedReservation = await Reservation.destroy({ _id: args });
+        const updatedReservation = await Reservation.findOneAndDelete({ _id});
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { reservations: args } }
+          { $pull: { reservations: _id } }
         );
 
         return updatedReservation;

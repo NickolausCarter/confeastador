@@ -27,6 +27,11 @@ type Restaurant {
   seats: Int
 }
 
+type Auth {
+  token: ID!
+  user: User
+}
+
 type Query {
   me: User
   users: [User]
@@ -37,14 +42,11 @@ type Query {
   restaurant(_id: ID!): Restaurant
 }
 
-type Auth {
-  token: ID!
-  user: User
-}
 
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
+  addRestaurant(restaurantName: String!, cuisine: String!, zipcode: String!, seats: Int!): Restaurant
   addReservation(restaurant: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation
 }
