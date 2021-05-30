@@ -49,6 +49,7 @@ type Mutation {
   addRestaurant(restaurantName: String!, cuisine: String!, zipcode: String!, seats: Int!): Restaurant
   addReservation(restaurant: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation
+  removeRestaurant(_id: ID!): Restaurant
 }
 `;
 

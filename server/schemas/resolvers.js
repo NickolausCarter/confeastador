@@ -98,6 +98,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    removeRestaurant: async (parent, {_id}, context) => {
+   
+        const updatedRestaurant = await Restaurant.findOneAndDelete({ _id});
+
+        return updatedRestaurant;
+      
+    }
   },
 };
 
