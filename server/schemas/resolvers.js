@@ -23,7 +23,7 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find().select("-__v -password").populate("reservations");
+      return User.find().select("-__v -password").populate("reservation");
     },
     // get a user by username
     user: async (parent, { username }) => {
