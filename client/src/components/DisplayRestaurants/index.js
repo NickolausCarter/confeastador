@@ -10,7 +10,7 @@ function DisplayRestaurants() {
       return (
         <div name="restaurant">
           <table>
-            <thead>
+            <thead key="thead">
               <tr>
                   <td>
                     Restaurant Name
@@ -23,9 +23,9 @@ function DisplayRestaurants() {
                   </td>
               </tr>
           </thead>
+          <tbody key="tbody">
         {data.restaurants.map((oneRestaurant) => (
-          <tbody>
-              <tr>
+              <tr key={"/viewrestaurant/"+oneRestaurant._id}>
                   <td>
                     <Link to={"/viewrestaurant/"+oneRestaurant._id}>{oneRestaurant.restaurantName}</Link>
                   </td>
@@ -36,10 +36,9 @@ function DisplayRestaurants() {
                       {oneRestaurant.zipcode}
                   </td>
               </tr>
-          </tbody>
-         
         ))}
-         </table>
+          </tbody>
+        </table>
       </div>
       );
 }
