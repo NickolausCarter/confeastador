@@ -1,10 +1,10 @@
 import React from "react";
-import { QUERY_RESTAURANT } from "../../utils/queries";
+import { QUERY_RESTAURANTS } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 
 function DisplayRestaurants() {
-    const { loading, error, data } = useQuery(QUERY_RESTAURANT);
+    const { loading, error, data } = useQuery(QUERY_RESTAURANTS);
     if (loading) return "Loading...";
     if (error) return `Error! ${error.message}`;
       return (
