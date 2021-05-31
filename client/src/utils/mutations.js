@@ -24,3 +24,14 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_RESERVATION = gql`
+  mutation addReservation($restaurant: ID!, $reservationDate: String! ) {
+    addReservation(restaurant: $restaurant , reservationDate: $reservationDate){
+      restaurant,
+      createdAt,
+      reservationDate,
+      username
+    }
+  }
+`;
