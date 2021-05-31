@@ -1,17 +1,15 @@
 import React from "react";
+import Auth from "../utils/auth";
 
 function Home() {
+  if(Auth.loggedIn()){
+
+    window.location.assign("/reservation");
+  }else{
+  }
   return (
       <div>
-        <textarea
-          id="search-text"
-          name="search-text"
-          rows="1"
-          cols="50"
-        ></textarea>
-        <button id="bttn-search" name="bttn-search">
-          Search now!
-        </button>
+        This is *** HOME *** (stays here if not logged in)
       </div>
     );
 }

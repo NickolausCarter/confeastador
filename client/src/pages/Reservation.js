@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 
 import DisplayRestaurants from "../components/DisplayRestaurants";
+import DisplayReservations from "../components/DisplayReservations";
 
 function Reservation() {
   const [showRest, setShowRest] = useState(0);
   function clikedSearch(){
-    console.log("SEARCH HAS BEEN CLICKED");
     setShowRest(true);
   }
   
   return (
     <div>
+      <div>
+        CURRENT RESERVATIONS WILL GO HERE<br />
+        <DisplayReservations />
+      </div>
       <textarea
         id="search-text"
         name="search-text"
@@ -23,7 +27,7 @@ function Reservation() {
       <div>
         {showRest
           ?<DisplayRestaurants />
-          : 'nothing to see'
+          : ''
         }
       </div>
     </div>
