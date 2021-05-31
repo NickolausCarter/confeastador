@@ -23,3 +23,38 @@ export const QUERY_RESTAURANT = gql`
     }
   }
 `;
+
+export const QUERY_RESERVATIONS = gql`
+query reservations($username:String) {
+  reservations(username:$username) {
+    _id,
+    restaurant{
+      _id,
+      restaurantName,
+      cuisine,
+      zipcode
+    },
+    createdAt,
+    reservationDate,
+    username
+  }
+}
+`;
+
+export const QUERY_ME = gql`
+query me {
+  me{
+    email
+    username
+    reservations{
+      restaurant{
+      	restaurantName,
+        cuisine,
+        zipcode
+      },
+      createdAt,
+      reservationDate
+    }
+  }
+}
+`;
