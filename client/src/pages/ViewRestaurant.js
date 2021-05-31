@@ -4,11 +4,15 @@ import { QUERY_RESTAURANT } from "../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ADD_RESERVATION } from "../utils/mutations";
+import { useMutation } from "@apollo/react-hooks";
 
 
 function ViewRestaurant() {
-
+  const [addReservation, { data2 }] = useMutation(ADD_RESERVATION);  
+  
   function clikedMakeReservation(){
+    addReservation({ variables: { restaurant: "60b545f02de84a72918d5743", reservationDate: "07/02/2021 11:30 AM"} });
     console.log("ADD CODE TO MAKE RESERVATION AND REDIRECT TO USER HOME");
   }
 
