@@ -1,10 +1,14 @@
-import React from "react";
-import { QUERY_RESTAURANTS } from "../utils/queries";
+import React, { useState } from 'react';
+
+import DisplayRestaurants from "../components/DisplayRestaurants";
 
 function Reservation() {
+  const [showRest, setShowRest] = useState(0);
   function clikedSearch(){
     console.log("SEARCH HAS BEEN CLICKED");
+    setShowRest(true);
   }
+  
   return (
     <div>
       <textarea
@@ -16,6 +20,12 @@ function Reservation() {
       <button id="bttn-search" name="bttn-search" onClick={clikedSearch}>
         Search for a restaurant
       </button>
+      <div>
+        {showRest
+          ?<DisplayRestaurants />
+          : 'nothing to see'
+        }
+      </div>
     </div>
   );
 }

@@ -27,14 +27,12 @@ type Restaurant {
   seats: Int
 }
 
-type Query {
-  me: User
-  users: [User]
-  user(username: String!): User
-  reservations(username: String): [Reservation]
-  reservation(_id: ID!): Reservation
-  restaurants: [Restaurant]
-  restaurant(_id: ID!): Restaurant
+input RestaurantFilters  {
+  restaurantName: String
+  ids: ID
+  cuisine: String
+  zipcode: String
+  seats: Int
 }
 
 type Auth {
@@ -42,11 +40,24 @@ type Auth {
   user: User
 }
 
+type Query {
+  me: User
+  users: [User]
+  user(username: String!): User
+  reservations(username: String): [Reservation]
+  reservation(_id: ID!): Reservation
+  restaurants(restaurantName: String, cuisine: String, zipcode: String, seats: Int): [Restaurant]
+  restaurant(_id: ID!): Restaurant
+}
+
+
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
+  addRestaurant(restaurantName: String!, cuisine: String!, zipcode: String!, seats: Int!): Restaurant
   addReservation(restaurant: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation
+  removeRestaurant(_id: ID!): Restaurant
 }
 `;
 

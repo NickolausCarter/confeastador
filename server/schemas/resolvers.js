@@ -8,33 +8,41 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("reservations");
+          .populate({
+            path: 'reservations',
+            populate: {path: 'restaurant'}
+          });
 
         return userData;
       }
       throw new AuthenticationError("Not logged in");
     },
-    // reservations: async (parent, { username }) => {
-    //   const params = username ? { username } : {};
-    reservations: async()=> {
-      return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
+    reservations: async (parent, { username }) => {
+      const params = username ? { username } : {};
+       return Reservation.find(params).sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
-      return (await Reservation.findOne({ _id }).populate("restaurants"));
+      return (await Reservation.findById({ _id }).populate("restaurant"));
     },
     // get all users
     users: async () => {
-      return User.find().select("-__v -password").populate("reservations");
+      return User.find().select("-__v -password").populate({
+        path: 'reservations',
+        populate: {path: 'restaurant'}
+      });
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("reservations");
+        .populate({
+          path: 'reservations',
+          populate: {path: 'restaurant'}
+        });
     },
     // get all users
-    restaurants: async () => {
-      return Restaurant.find();
+    restaurants: async (parent, args, context) => {
+      return Restaurant.find (args)
     },
     // get a restaurant by id
     restaurant: async (parent, { _id }) => {
@@ -63,6 +71,10 @@ const resolvers = {
 
       return { token, user };
     },
+    addRestaurant: async (parent, args) => {
+      const restaurant = await Restaurant.create(args);
+      return restaurant
+    },
     addReservation: async (parent, args, context) => {
       if (context.user) {
         const reservation = await Reservation.create({
@@ -72,7 +84,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { reservations: reservation._id } },
+          { $push: { reservations: reservation} },
           { new: true }
         );
 
@@ -81,13 +93,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeReservation: async (parent, args, context) => {
+    removeReservation: async (parent, {_id}, context) => {
       if (context.user) {
-        const updatedReservation = await Reservation.destroy({ _id: args });
+        const updatedReservation = await Reservation.findOneAndDelete({ _id});
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { reservations: args } }
+          { $pull: { reservations: _id } }
         );
 
         return updatedReservation;
@@ -95,6 +107,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    removeRestaurant: async (parent, {_id}, context) => {
+   
+        const updatedRestaurant = await Restaurant.findOneAndDelete({ _id});
+
+        return updatedRestaurant;
+      
+    }
   },
 };
 
