@@ -27,6 +27,14 @@ type Restaurant {
   seats: Int
 }
 
+input RestaurantFilters  {
+  restaurantName: String
+  ids: ID
+  cuisine: String
+  zipcode: String
+  seats: Int
+}
+
 type Auth {
   token: ID!
   user: User
@@ -38,7 +46,7 @@ type Query {
   user(username: String!): User
   reservations(username: String): [Reservation]
   reservation(_id: ID!): Reservation
-  restaurants: [Restaurant]
+  restaurants(restaurantName: String, cuisine: String, zipcode: String, seats: Int): [Restaurant]
   restaurant(_id: ID!): Restaurant
 }
 

@@ -18,8 +18,8 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     reservations: async (parent, { username }) => {
-    const params = username ? { username } : {};
-       return Reservation.find().sort({ createdAt: -1 }).populate("restaurant");
+      const params = username ? { username } : {};
+       return Reservation.find(params).sort({ createdAt: -1 }).populate("restaurant");
     },
     reservation: async (parent, { _id }) => {
       return (await Reservation.findById({ _id }).populate("restaurant"));
@@ -41,8 +41,8 @@ const resolvers = {
         });
     },
     // get all users
-    restaurants: async () => {
-      return Restaurant.find();
+    restaurants: async (parent, args, context) => {
+      return Restaurant.find (args)
     },
     // get a restaurant by id
     restaurant: async (parent, { _id }) => {
