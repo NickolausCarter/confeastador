@@ -18,15 +18,16 @@ function ViewRestaurant() {
   }
 
   const {_id: idParam} = useParams();
+  const [startDate, setStartDate] = useState(new Date());
   const { loading, error, data } = useQuery(QUERY_RESTAURANT, {
     variables: { _id: idParam },
   });
-  const [startDate, setStartDate] = useState(new Date());
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+  
   localStorage.setItem("restaurant-id", data.restaurant._id);
 
-  console.log(data);
+  
   return (
     <div>
       <div id="restaurant-info">

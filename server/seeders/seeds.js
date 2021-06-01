@@ -36,9 +36,9 @@ db.once("open", async () => {
     userData.push({ username, email, password });
   }
 
-  //console.log(userData);
+  
   const createdUsers = await User.collection.insertMany(userData);
-  console.log(createdUsers);
+  
 
   //=========================================================
   // Restaurant data
@@ -87,11 +87,11 @@ db.once("open", async () => {
     seats: 10,
   });
 
-  //console.log(resturantData);
+  
   const createdRestaurants = await Restaurant.collection.insertMany(
     restaurantData
   );
-  console.log(createdRestaurants);
+  
 
   //=========================================================
   // Reservation data
@@ -110,12 +110,12 @@ db.once("open", async () => {
       username: createdUsers.ops[1].username,
     },
   ];
-  //console.log(reservationData);
+  
   const createdReservations = await Reservation.collection.insertMany(
     reservationData
   );
-  console.log(createdReservations);
+  
 
-  console.log("all done!!");
+  
   process.exit(0);
 });

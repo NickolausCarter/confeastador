@@ -11,7 +11,7 @@ function DisplayReservations() {
     if((data == null)||(data.me == null)||(data.me.reservations == null)||(data.me.reservations.length === 0)){
       haveReservations = false;
     }
-    console.log(haveReservations);
+    
       return (
         <div name="reservations">
           Existing Reservations
