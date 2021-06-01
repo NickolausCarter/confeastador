@@ -1,29 +1,75 @@
 import React, { useState } from 'react';
 
 import DisplayRestaurants from "../components/DisplayRestaurants";
+import DisplayReservations from "../components/DisplayReservations";
 
-function Reservation() {
-  const [showRest, setShowRest] = useState(0);
-  function clikedSearch(){
-    console.log("SEARCH HAS BEEN CLICKED");
-    setShowRest(true);
+class Reservation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    //alert("A name was submitted: " + this.state.value);
+    localStorage.setItem("restaurantSearchString", this.state.value);
+    //event.preventDefault();
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Search your Restaurant by Name or zipcode.</p>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Search" />
+        </form>
+        <div>{<DisplayRestaurants />}</div>
+      </div>
+    );
+  }
+}
+
+export default Reservation;
+
+
+/*
+
+function Reservation() {
+
+  const [showRest, setShowRest] = useState(0);
+  function clikedSearch(){
+    //localStorage.setItem("restaurantSearchString",)
+    console.log(">>>>>>THIS");
+    console.log(this);
+    setShowRest(true);
+  }
+
   return (
     <div>
-      <textarea
-        id="search-text"
-        name="search-text"
-        rows="1"
-        cols="50"
-      ></textarea>
+      <div>
+        <DisplayReservations />
+      </div>
+      <input id="search-text" type="text" name="search-text" />
       <button id="bttn-search" name="bttn-search" onClick={clikedSearch}>
         Search for a restaurant
       </button>
       <div>
         {showRest
           ?<DisplayRestaurants />
-          : 'nothing to see'
+          : ''
         }
       </div>
     </div>
@@ -31,3 +77,4 @@ function Reservation() {
 }
 
 export default Reservation;
+*/
