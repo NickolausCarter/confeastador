@@ -19,7 +19,7 @@ function DisplayRestaurants() {
                     Cuisine
                   </td>
                   <td>
-                    Locaiton Zipcode
+                    Location Zipcode
                   </td>
               </tr>
           </thead>
