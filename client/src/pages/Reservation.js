@@ -15,12 +15,7 @@ function Reservation() {
       <div>
         <DisplayReservations />
       </div>
-      <textarea
-        id="search-text"
-        name="search-text"
-        rows="1"
-        cols="50"
-      ></textarea>
+      <input id="search-text" type="text" name="search-text" />
       <button id="bttn-search" name="bttn-search" onClick={clikedSearch}>
         Search for a restaurant
       </button>

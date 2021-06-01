@@ -10,20 +10,24 @@ import { useMutation } from "@apollo/react-hooks";
 
 function ViewRestaurant() {
   const [addReservation, { data2 }] = useMutation(ADD_RESERVATION);  
-  
+
   function clikedMakeReservation(){
-    addReservation({ variables: { restaurant: "60b545f02de84a72918d5743", reservationDate: "07/02/2021 11:30 AM"} });
-    console.log("ADD CODE TO MAKE RESERVATION AND REDIRECT TO USER HOME");
+    const restId = localStorage.getItem("restaurant-id");
+    const restCuisine = localStorage.getItem("restaurant-cuisine");
+    addReservation({ variables: { restaurant: restId, reservationDate: startDate.toString()} });
+    window.location.assign("/reservation");
   }
 
-  const [startDate, setStartDate] = useState(new Date());
   const {_id: idParam} = useParams();
-  console.log(idParam);
   const { loading, error, data } = useQuery(QUERY_RESTAURANT, {
     variables: { _id: idParam },
   });
+  const [startDate, setStartDate] = useState(new Date());
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+  localStorage.setItem("restaurant-id", data.restaurant._id);
+  localStorage.setItem("restaurant-cuisine", data.restaurant.cuisine);
+
   console.log(data);
   return (
     <div>
