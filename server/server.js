@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
   
   app.get("/serviceWorker.js", (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/src/serviceWorker.js'));
+    res.sendFile(path.resolve(__dirname, 'client', 'src', 'serviceWorker.js'));
   });
 
   app.get('*', (req, res) => {
