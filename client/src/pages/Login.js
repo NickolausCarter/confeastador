@@ -12,7 +12,8 @@ const Login = (props) => {
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+    localStorage.setItem("current_email",formState.email);
+    console.log(formState);
     setFormState({
       ...formState,
       [name]: value,
