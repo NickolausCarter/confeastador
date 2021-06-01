@@ -69,12 +69,12 @@ db.once("open", async () => {
   //=========================================================
   const reservationData = [
     {
-      restaurant: createdRestaurants.ops[0],
+      restaurant: [createdRestaurants.ops[0]._id],
       reservationDate: "05/31/2021",
       username: createdUsers.ops[0].username,
     },
     {
-      restaurant: createdRestaurants.ops[1],
+      restaurant: [createdRestaurants.ops[1]._id],
       reservationDate: "06/01/2021",
       username: createdUsers.ops[1].username,
     },

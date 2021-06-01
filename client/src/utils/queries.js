@@ -44,10 +44,12 @@ query reservations($username:String) {
 export const QUERY_ME = gql`
 query me {
   me{
-    email
-    username
+    _id,
+    email,
+    username,
     reservations{
       restaurant{
+        _id,
       	restaurantName,
         cuisine,
         zipcode

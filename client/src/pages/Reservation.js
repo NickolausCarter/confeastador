@@ -13,7 +13,6 @@ function Reservation() {
   return (
     <div>
       <div>
-        CURRENT RESERVATIONS WILL GO HERE<br />
         <DisplayReservations />
       </div>
       <textarea
