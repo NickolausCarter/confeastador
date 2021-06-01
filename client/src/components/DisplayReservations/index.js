@@ -6,13 +6,9 @@ function DisplayReservations() {
     const { loading, error, data } = useQuery(QUERY_ME);
     if (loading) return "Loading...";
     if (error) return `Error! ${error.message}`;
-
-    console.log(">>>>>>");
-    console.log(data);
-    console.log("<<<<<");
     
     let haveReservations = true;
-    if((data == null)||(data.me == null)||(data.me.reservations == null)||(data.me.reservations.length == 0)){
+    if((data == null)||(data.me == null)||(data.me.reservations == null)||(data.me.reservations.length === 0)){
       haveReservations = false;
     }
     console.log(haveReservations);

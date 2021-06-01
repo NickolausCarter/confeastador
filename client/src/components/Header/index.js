@@ -7,6 +7,7 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+  const currEmail = localStorage.getItem("current_email");
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
@@ -17,6 +18,7 @@ const Header = () => {
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
+              Welcome: {currEmail}
               <a href="/" onClick={logout}>
                 Logout
               </a>
