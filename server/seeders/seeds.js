@@ -9,6 +9,9 @@ db.once("open", async () => {
   await Reservation.deleteMany({});
   await Restaurant.deleteMany({});
 
+  const reservationId1 = "60b58f8402e48e8605a9d156";
+  const reservationId2 = "60b58f8402e48e8605a9d157";
+
   //=========================================================
   // create user data
   //=========================================================
@@ -17,11 +20,13 @@ db.once("open", async () => {
     username: "John_Smith",
     email: "jsmith@gmail.com",
     password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
+    reservations: [reservationId1]
   });
   userData.push({
       username: "natalia",
       email: "natalia@gmail.com",
       password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
+      reservations: [reservationId2]
     });
   for (let i = 0; i < 2; i += 1) {
     const username = faker.internet.userName();
@@ -69,11 +74,13 @@ db.once("open", async () => {
   //=========================================================
   const reservationData = [
     {
+      _id: mongoose.Types.ObjectId(reservationId1),
       restaurant: [createdRestaurants.ops[0]._id],
       reservationDate: "05/31/2021",
       username: createdUsers.ops[0].username,
     },
     {
+      _id: mongoose.Types.ObjectId(reservationId2),
       restaurant: [createdRestaurants.ops[1]._id],
       reservationDate: "06/01/2021",
       username: createdUsers.ops[1].username,

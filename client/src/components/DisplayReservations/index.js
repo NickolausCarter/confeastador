@@ -6,10 +6,9 @@ function DisplayReservations() {
     const { loading, error, data } = useQuery(QUERY_ME);
     if (loading) return "Loading...";
     if (error) return `Error! ${error.message}`;
+
     console.log(">>>>>>");
     console.log(data);
-    console.log(data.me);
-    console.log(data.me.reservations);
     console.log("<<<<<");
     
     let haveReservations = true;
@@ -42,10 +41,10 @@ function DisplayReservations() {
               {data.me.reservations.map((oneReservation) => (
                   <tr key={"__"+oneReservation._id}>
                       <td>
-                          {/* oneReservation.restaurant[0].restaurantName */}
+                          {oneReservation.restaurant[0].restaurantName}
                       </td>
                       <td>
-                          {/* oneReservation.restaurant[0].cuisine */}
+                          {oneReservation.restaurant[0].cuisine}
                       </td>
                       <td>
                           {oneReservation.reservationDate}
