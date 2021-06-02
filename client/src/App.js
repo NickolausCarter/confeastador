@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Reservation from "./pages/Reservation";
 import ViewRestaurant from "./pages/ViewRestaurant";
+import DeleteReservation from "./pages/DeleteReservation";
 import NoMatch from "./pages/NoMatch";
 
 const client = new ApolloClient({
@@ -39,6 +40,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/reservation" component={Reservation} />
               <Route exact path="/viewrestaurant/:_id" component={ViewRestaurant} />
+              <Route exact path="/deletereservation/:_id" component={DeleteReservation} />
               <Route component={NoMatch} />
             </Switch>
           </div>
