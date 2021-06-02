@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     min-height: 100vh;
     position: relative;
+    margin-top: 85px;
 }
 
 .homepage .content {

@@ -13,10 +13,10 @@ class Reservation extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
-  
+
   handleChange(event) {
     this.setState({ value: event.target.value });
-    
+
   }
 
   handleSubmit(event) {
