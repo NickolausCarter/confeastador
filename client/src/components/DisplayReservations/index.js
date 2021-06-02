@@ -22,16 +22,13 @@ function DisplayReservations() {
                 <thead key="thead">
                   <tr>
                       <td>
-                        Restaurant Name
+                        Restaurant
                       </td>
                       <td>
                         Cuisine
                       </td>
                       <td>
-                        Reservation Date and Time
-                      </td>
-                      <td>
-                        Created On
+                        Date / Time
                       </td>
                       <td>
                         Action
