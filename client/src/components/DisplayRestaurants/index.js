@@ -24,6 +24,8 @@ function DisplayRestaurants() {
       args = { restaurantName: searchString };
   }
 
+
+
     const { loading, error, data } = useQuery(QUERY_RESTAURANTS_ARGS, {
       variables: args,
     });

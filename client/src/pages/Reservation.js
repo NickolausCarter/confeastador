@@ -19,12 +19,18 @@ class Reservation extends React.Component {
   handleSubmit(event) {
     //alert("A name was submitted: " + this.state.value);
     localStorage.setItem("restaurantSearchString", this.state.value);
+    localStorage.setItem("flagShowRestaurants", true);
     //event.preventDefault();
   }
 
   render() {
+    localStorage.setItem("flagShowRestaurants", false);
+    var showResults = localStorage.getItem("flagShowRestaurants");
     return (
       <div>
+      <div>
+          <DisplayReservations />
+      </div>
         <p>Search your Restaurant by Name or zipcode.</p>
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -34,9 +40,13 @@ class Reservation extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Search" />
+          <input type="submit" value="Search"/>
         </form>
-        <div>{<DisplayRestaurants />}</div>
+        <div>
+          {showResults?(
+            <DisplayRestaurants />
+          ):(<p></p>)}
+        </div>
       </div>
     );
   }
