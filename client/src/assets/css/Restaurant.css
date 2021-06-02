@@ -4,10 +4,12 @@
     background-repeat: no-repeat;
     min-height: 100vh;
     margin-top: 85px;
+    padding-top: 50px;
 }
 
 .restaurant-info .details {
     width: 40%;
+    margin: 0 auto;
     background-color: white;
     padding: 25px;
     border-radius: 5px;
@@ -25,6 +27,8 @@
 
 .restaurant-info .details .selections {
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
 
 .restaurant-info .details .selections p {
@@ -40,10 +44,13 @@
     color: #fff;
     font-size: 18px;
     font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .react-datepicker__input-container input {
     margin-bottom: 16px;
     padding: 5px;
     font-size: 18px;
+    width: 100%;
 }
