@@ -40,7 +40,8 @@ class Reservation extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Search"/>
+          <input id="search-btn" type="submit" value="Search"/>
+          <label for="search-btn">Click to conduct search.</label>
         </form>
         <div>
             <DisplayRestaurants />
