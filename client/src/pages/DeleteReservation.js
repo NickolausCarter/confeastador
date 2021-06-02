@@ -11,7 +11,7 @@ import { useMutation } from "@apollo/react-hooks";
 function DeleteReservation() {
     const {_id: idParam} = useParams();
     console.log(idParam);
-    const [removeReservation, { data_mutation }] = useMutation(REMOVE_RESERVATION);  
+    const [removeReservation, { data_mutation }] = useMutation(REMOVE_RESERVATION); 
 
     removeReservation({ variables: { _id: idParam} });
     window.location.assign("/reservation");

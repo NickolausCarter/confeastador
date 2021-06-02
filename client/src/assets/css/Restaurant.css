@@ -1,0 +1,49 @@
+.restaurant-info {
+    background: url('../images/home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin-top: 85px;
+}
+
+.restaurant-info .details {
+    width: 40%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px 9px rgba(0,0,0,0.20);
+}
+
+.restaurant-info .details p {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.restaurant-info .details p span {
+    font-weight: bold;
+}
+
+.restaurant-info .details .selections {
+    font-weight: bold;
+}
+
+.restaurant-info .details .selections p {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.restaurant-info .details .selections button {
+    height: 36px;
+    background-color: #6fb3b8;
+    border: #6fb3b8;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.react-datepicker__input-container input {
+    margin-bottom: 16px;
+    padding: 5px;
+    font-size: 18px;
+}

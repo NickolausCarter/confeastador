@@ -30,3 +30,22 @@
     font-size: 18px;
     width: 100%;
 }
+
+.reservations table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.reservations table thead {
+    font-weight: bold;
+}
+
+.reservations table thead tr td {
+    height: 50px;
+    font-size: 24px;
+}
+
+.reservations table tbody tr td {
+    font-size: 18px;
+    padding-bottom: 8px;
+}
