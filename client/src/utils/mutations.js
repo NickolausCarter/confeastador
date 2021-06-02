@@ -39,3 +39,16 @@ export const ADD_RESERVATION = gql`
     }
   }
 `;
+
+
+
+export const REMOVE_RESERVATION = gql`
+  mutation removeReservation($_id: ID!) {
+    removeReservation(_id: $_id) {
+        _id
+        createdAt
+        reservationDate
+        username
+    }
+  }
+`;

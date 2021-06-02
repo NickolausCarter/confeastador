@@ -1,6 +1,7 @@
 import React from "react";
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
+import { Link } from "react-router-dom";
 
 function DisplayReservations() {
     const { loading, error, data } = useQuery(QUERY_ME);
@@ -31,6 +32,9 @@ function DisplayReservations() {
                       <td>
                         Created On
                       </td>
+                      <td>
+                        Action
+                      </td>
                   </tr>
               </thead>
               <tbody key="tbody">
@@ -47,6 +51,9 @@ function DisplayReservations() {
                       </td>
                       <td>
                           {oneReservation.createdAt}
+                      </td>
+                      <td>
+                      <Link to={"/deletereservation/"+oneReservation._id}>Delete</Link>
                       </td>
                   </tr>
               ))}
