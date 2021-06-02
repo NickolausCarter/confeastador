@@ -1,6 +1,5 @@
 // Import module to serve up the React front-end code in production
 const path = require("path");
-const sslRedirect = require('heroku-ssl-redirect');
 
 const express = require('express');
 // import ApolloServer
@@ -25,7 +24,6 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(sslRedirect);
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
