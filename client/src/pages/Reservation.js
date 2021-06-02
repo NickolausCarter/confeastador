@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../assets/css/Reservations.css';
 
 import DisplayRestaurants from "../components/DisplayRestaurants";
 import DisplayReservations from "../components/DisplayReservations";
@@ -27,25 +28,24 @@ class Reservation extends React.Component {
 
   render() {
     return (
-      <div>
-      <div>
-          <DisplayReservations />
-      </div>
-        <p>Search your Restaurant by Name or zipcode.</p>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type="submit" value="Search"/>
-        </form>
-        <div>
-            <DisplayRestaurants />
+      <main>
+        <DisplayReservations />
+        <div className="search">
+          <h2>Search</h2>
+          <p>Enter a specific restaurant name or your ZIP Code</p>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+            </label>
+            <button type="submit">Search</button>
+          </form>
+          <DisplayRestaurants />
         </div>
-      </div>
+      </main>
     );
   }
 }
