@@ -34,15 +34,14 @@ class Reservation extends React.Component {
         <p>Search your Restaurant by Name or zipcode.</p>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Enter a name or zip code to filter the search of restaurants.
             <input
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
+              aria-label="Enter a name or zip code to filter the search of restaurants"
             />
           </label>
-          <input id="search-btn" type="submit" value="Search"/>
-          <label for="search-btn">Click to conduct search.</label>
+          <input id="search-btn" type="submit" value="Search" aria-label="search button"/>
         </form>
         <div>
             <DisplayRestaurants />
