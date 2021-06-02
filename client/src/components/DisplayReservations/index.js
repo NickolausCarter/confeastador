@@ -22,16 +22,13 @@ function DisplayReservations() {
                 <thead key="thead">
                   <tr>
                       <td>
-                        Restaurant Name
+                        Restaurant
                       </td>
                       <td>
                         Cuisine
                       </td>
                       <td>
-                        Reservation Date and Time
-                      </td>
-                      <td>
-                        Created On
+                        Date / Time
                       </td>
                       <td>
                         Action
@@ -49,9 +46,6 @@ function DisplayReservations() {
                       </td>
                       <td>
                           {oneReservation.reservationDate}
-                      </td>
-                      <td>
-                          {oneReservation.createdAt}
                       </td>
                       <td>
                       <Link to={"/deletereservation/"+oneReservation._id}>Delete</Link>

@@ -22,6 +22,10 @@ header h1 {
     color: #c2edce;
 }
 
+header h1 span {
+    font-style: italic;
+}
+
 header nav a {
     background-color: #c2edce;
     color: #388087;
