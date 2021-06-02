@@ -10,22 +10,22 @@ class Reservation extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
   
   handleChange(event) {
     this.setState({ value: event.target.value });
+    
   }
 
   handleSubmit(event) {
-    //alert("A name was submitted: " + this.state.value);
+
     localStorage.setItem("restaurantSearchString", this.state.value);
-    localStorage.setItem("flagShowRestaurants", true);
+    localStorage.setItem("showRestResults", "true");
     //event.preventDefault();
   }
 
   render() {
-    localStorage.setItem("flagShowRestaurants", false);
-    var showResults = localStorage.getItem("flagShowRestaurants");
     return (
       <div>
       <div>
@@ -43,9 +43,7 @@ class Reservation extends React.Component {
           <input type="submit" value="Search"/>
         </form>
         <div>
-          {showResults?(
             <DisplayRestaurants />
-          ):(<p></p>)}
         </div>
       </div>
     );
