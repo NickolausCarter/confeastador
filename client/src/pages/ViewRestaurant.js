@@ -30,7 +30,7 @@ function ViewRestaurant() {
 
   return (
     <div className='restaurant-info'>
-      <div id="details">
+      <div className="details">
         <p><span>Restaruant:</span> {data.restaurant.restaurantName}</p>
         <p><span>Cuisine:</span> {data.restaurant.cuisine}</p>
         <p><span>ZIP Code:</span> {data.restaurant.zipcode}</p>
