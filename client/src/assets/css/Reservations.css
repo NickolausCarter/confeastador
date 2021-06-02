@@ -1,0 +1,32 @@
+.reservations,
+.search {
+    width: 75%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px 9px rgba(0,0,0,0.20);
+    margin-bottom: 30px;
+}
+
+.reservations h2,
+.search h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.search p {
+    margin-bottom: 4px;
+}
+
+.search form {
+    width: 25%;
+}
+
+.search input {
+    margin-bottom: 16px;
+    padding: 5px;
+    font-size: 18px;
+    width: 100%;
+}
