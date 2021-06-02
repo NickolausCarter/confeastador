@@ -93,6 +93,14 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    updateReservation: async (parent, {_id, reservationDate}, context) => {
+      if (context.user) {
+        const updatedReservation = await Reservation.findByIdAndUpdate({_id: _id}, {reservationDate: reservationDate}, {new: true});
+        return updatedReservation
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
     removeReservation: async (parent, {_id}, context) => {
       if (context.user) {
         const updatedReservation = await Reservation.findOneAndDelete({ _id});

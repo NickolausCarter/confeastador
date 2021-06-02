@@ -1,0 +1,47 @@
+main {
+    padding: 50px 0;
+    background: url('../images/home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    margin-top: 85px;
+}
+
+main .login-container,
+main .signup-container {
+    position: absolute;
+    right: 6%;
+    top: 15%;
+    width: 40%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px 9px rgba(0,0,0,0.20);
+}
+
+main h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}
+
+main form input {
+    margin-bottom: 16px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+main form button {
+    height: 36px;
+    background-color: #6fb3b8;
+    border: #6fb3b8;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}

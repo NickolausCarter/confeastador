@@ -31,9 +31,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -43,9 +41,7 @@ function App() {
               <Route exact path="/deletereservation/:_id" component={DeleteReservation} />
               <Route component={NoMatch} />
             </Switch>
-          </div>
           <Footer />
-        </div>
       </Router>
     </ApolloProvider>
   );

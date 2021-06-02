@@ -2,35 +2,33 @@ import React from "react";
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
+import '../../assets/css/Reservations.css';
 
 function DisplayReservations() {
     const { loading, error, data } = useQuery(QUERY_ME);
     if (loading) return "Loading...";
     if (error) return `Error! ${error.message}`;
-    
+
     let haveReservations = true;
     if((data == null)||(data.me == null)||(data.me.reservations == null)||(data.me.reservations.length === 0)){
       haveReservations = false;
     }
-    
+
       return (
-        <div name="reservations">
-          Existing Reservations
+        <div className="reservations">
+          <h2>Existing Reservations</h2>
           {haveReservations ? (
               <table>
                 <thead key="thead">
                   <tr>
                       <td>
-                        Restaurant Name
+                        Restaurant
                       </td>
                       <td>
                         Cuisine
                       </td>
                       <td>
-                        Reservation Date and Time
-                      </td>
-                      <td>
-                        Created On
+                        Date / Time
                       </td>
                       <td>
                         Action
@@ -48,9 +46,6 @@ function DisplayReservations() {
                       </td>
                       <td>
                           {oneReservation.reservationDate}
-                      </td>
-                      <td>
-                          {oneReservation.createdAt}
                       </td>
                       <td>
                       <Link to={"/deletereservation/"+oneReservation._id}>Delete</Link>
