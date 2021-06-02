@@ -34,6 +34,7 @@ class Reservation extends React.Component {
         <p>Search your Restaurant by Name or zipcode.</p>
         <form onSubmit={this.handleSubmit}>
           <label>
+            Enter a name or zip code to filter the search of restaurants.
             <input
               type="text"
               value={this.state.value}
