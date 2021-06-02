@@ -5,8 +5,16 @@ import { Link } from "react-router-dom";
 
 function DisplayRestaurants() {
   const searchString = localStorage.getItem("restaurantSearchString");
+  const showResultsStr = localStorage.getItem("showRestResults")
   let args = {};
-
+  let showResults = false;
+  
+  if(showResultsStr == "false"){
+    showResults = false;
+  }else{
+    showResults = true;
+  }
+  
   function is_usZipCode(str) {
     const regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
     if (regexp.test(str)) {
@@ -23,17 +31,15 @@ function DisplayRestaurants() {
   } else  {
       args = { restaurantName: searchString };
   }
-
-
-
-    const { loading, error, data } = useQuery(QUERY_RESTAURANTS_ARGS, {
-      variables: args,
-    });
-    if (loading) return "Loading...";
-    if (error) return `Error! ${error.message}`;
+  const { loading, error, data } = useQuery(QUERY_RESTAURANTS_ARGS, {
+    variables: args,
+  });
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
 
       return (
         <div name="restaurant">
+          {showResults ? (
           <table>
             <thead key="thead">
               <tr>
@@ -63,7 +69,7 @@ function DisplayRestaurants() {
               </tr>
         ))}
           </tbody>
-        </table>
+        </table>):(<p></p>)}
       </div>
       );
 }
