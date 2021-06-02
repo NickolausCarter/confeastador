@@ -48,9 +48,6 @@ function DisplayReservations() {
                           {oneReservation.reservationDate}
                       </td>
                       <td>
-                          {oneReservation.createdAt}
-                      </td>
-                      <td>
                       <Link to={"/deletereservation/"+oneReservation._id}>Delete</Link>
                       </td>
                   </tr>
