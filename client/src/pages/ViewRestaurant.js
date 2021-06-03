@@ -31,7 +31,7 @@ function ViewRestaurant() {
   return (
     <div className='restaurant-info'>
       <div className="details">
-        <p><span>Restaruant:</span> {data.restaurant.restaurantName}</p>
+        <p><span>Restaurant:</span> {data.restaurant.restaurantName}</p>
         <p><span>Cuisine:</span> {data.restaurant.cuisine}</p>
         <p><span>ZIP Code:</span> {data.restaurant.zipcode}</p>
         <p><span>Number of seats:</span> {data.restaurant.seats}</p>

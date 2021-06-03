@@ -26,13 +26,13 @@ function DisplayRestaurants() {
   }
 
   if (searchString == ""){
-    args = {};
+    args = { term: "restaurants", limit: 50 };
   }else if (is_usZipCode(searchString) == true) {
-      args = { zipcode: searchString };
+      args += { postal_code: searchString };
   } else  {
-      args = { restaurantName: searchString };
+      args = { name: searchString.toLowerCase() };
   }
-  const { loading, error, data } = useQuery(QUERY_RESTAURANTS_ARGS, {
+  const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
   });
   if (loading) return "Loading...";
@@ -57,16 +57,16 @@ function DisplayRestaurants() {
               </tr>
             </thead>
             <tbody key="tbody">
-              {data.restaurants.map((oneRestaurant) => (
-                    <tr key={"/viewrestaurant/"+oneRestaurant._id}>
+              {data.search.business.map((oneRestaurant) => (
+                    <tr key={"/viewrestaurant/"+oneRestaurant.id}>
                         <td>
-                          <Link to={"/viewrestaurant/"+oneRestaurant._id}>{oneRestaurant.restaurantName}</Link>
+                          <Link to={"/viewrestaurant/"+oneRestaurant.id}>{oneRestaurant.name.toLowerCase()}</Link>
                         </td>
                         <td>
-                            {oneRestaurant.cuisine}
+                            {oneRestaurant.categories.title[0]}
                         </td>
                         <td>
-                            {oneRestaurant.zipcode}
+                            {oneRestaurant.postal_code}
                         </td>
                     </tr>
               ))}

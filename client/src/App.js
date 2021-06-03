@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import { HttpLink } from 'apollo-link-http';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -28,9 +29,26 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
+const yelpClient = new ApolloClient({
+  request: (operation) => {
+    const token = process.env.YELP_API_KEY;
+
+    operation.setContext({
+      headers: {
+        authorization: `Bearer ${token}`,
+        'accept-language': 'en_US'
+      },
+    });
+  },
+  new HttpLink({
+    uri: 'https://api.yelp.com/v3/graphql',
+    credentials: 'same-origin'
+  })
+});
+
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client, yelpClient}>
       <Router>
         <Header />
         <Switch>
