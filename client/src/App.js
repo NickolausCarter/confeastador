@@ -35,12 +35,12 @@ export const yelpClient = new ApolloClient({
 
     operation.setContext({
       headers: {
-        authorization: `Bearer ${apiKey}`,
+        authorization: apiKey ? `Bearer ${apiKey}` : '',
         'accept-language': 'en_US',
       },
     });
   },
-  uri: 'https://api.yelp.com/v3/graphql',
+  uri: 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
 });
 
 function App() {
