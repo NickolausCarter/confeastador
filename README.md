@@ -89,10 +89,11 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 Made by:
 
+**[Nick Carter](https://github.com/NickolausCarter)** - Project Lead, User Authentication, Site Security, Debugging/
 **[Eduardo Castro](https://github.com/mambru82)** - Front-End, Code Refactoring, Back end queries and mutations, Debugging\
 **[Martha Gamez](https://github.com/marth121)** - Front-End, Data Analysis, Data Queries, Data Input, Debugging\
 **[Thomas Curry](https://github.com/curryduz)** - Seeded the database for testing\
-**[Averie Beltran](https://github.com/averiebeltran)** - CSS Styling & UI Design\
-**[Nick Carter](https://github.com/NickolausCarter)** - Project Lead, User Authentication, Site Security, Debugging\
+**[Averie Beltran](https://github.com/averiebeltran)** - CSS Styling & UI Design
+
 
 &copy; 2021 Lab Manager
