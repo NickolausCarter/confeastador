@@ -52,7 +52,7 @@ function UpdateReservation() {
         <p>
           <span>Current:</span> {new Date(data.reservation.reservationDate).toLocaleDateString()}
           &nbsp;
-          {new Date(data.reservation.reservationDate).toLocaleTimeString()}
+          {new Date(data.reservation.reservationDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </p>
         <hr></hr>
         <div className="selections">
