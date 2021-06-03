@@ -96,4 +96,4 @@ Made by:
 **[Averie Beltran](https://github.com/averiebeltran)** - CSS Styling & UI Design
 
 
-&copy; 2021 Lab Manager
+&copy; 2021 conFEASTador
