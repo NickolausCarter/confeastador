@@ -29,7 +29,7 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-const yelpClient = new ApolloClient({
+export const yelpClient = new ApolloClient({
   request: (operation) => {
     const token = process.env.YELP_API_KEY;
 
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default { App, yelpClient };
+export default App;
