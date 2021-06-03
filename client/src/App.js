@@ -37,6 +37,7 @@ export const yelpClient = new ApolloClient({
       headers: {
         authorization: `Bearer ${token}`,
         'accept-language': 'en_US',
+        'Context-Type': 'application/graphql'
       },
     });
   },
