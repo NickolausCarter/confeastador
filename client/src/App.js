@@ -41,7 +41,7 @@ export const yelpClient = new ApolloClient({
       },
     });
   },
-  uri: 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
+  uri: 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
 });
 
 function App() {
