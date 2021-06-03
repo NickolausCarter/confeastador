@@ -50,7 +50,7 @@ npm run start:dev
 
 ## Description of Typical Work Flow
 
-A consumer using an application to make reservations for their favorite restaurant.
+A consumer using an application to make reservations for their favorite restaurant.</br>
 When I first load the app, I am taken to the home page.</br>
 On the home page, I see a description of what the app is as well as an option to create an account or login.</br>
 When I click create an account, I am prompted to enter my name, email and a password. </br>
