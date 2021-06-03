@@ -1,8 +1,9 @@
 import React from "react";
-import { QUERY_RESTAURANTS, QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
+import { QUERY_RESTAURANTS_YELP } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import '../../assets/css/Search-results.css';
+import { yelpClient } from "../../App";
 
 function DisplayRestaurants() {
   const searchString = localStorage.getItem("restaurantSearchString");
@@ -34,6 +35,7 @@ function DisplayRestaurants() {
   }
   const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
+    client: yelpClient,
   });
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;

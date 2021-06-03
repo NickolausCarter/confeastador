@@ -48,7 +48,7 @@ const yelpClient = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client, yelpClient}>
+    <ApolloProvider client={client}>
       <Router>
         <Header />
         <Switch>
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default { App, yelpClient };
