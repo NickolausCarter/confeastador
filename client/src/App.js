@@ -40,7 +40,7 @@ const yelpClient = new ApolloClient({
       },
     });
   },
-  new HttpLink({
+  link: new HttpLink({
     uri: 'https://api.yelp.com/v3/graphql',
     credentials: 'same-origin'
   })
