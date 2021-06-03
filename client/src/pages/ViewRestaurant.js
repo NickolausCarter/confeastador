@@ -12,9 +12,13 @@ import '../assets/css/Restaurant.css';
 function ViewRestaurant() {
   const [addReservation, { data_mutation }] = useMutation(ADD_RESERVATION);
 
-  function clikedMakeReservation(){
+  function clickedMakeReservation(){
     const restId = localStorage.getItem("restaurant-id");
     addReservation({ variables: { restaurant: restId, reservationDate: startDate.toString()} });
+    window.location.assign("/reservation");
+  }
+
+  function clickedCancel(){
     window.location.assign("/reservation");
   }
 
@@ -39,8 +43,12 @@ function ViewRestaurant() {
         <div className='selections'>
           <p>Select a date and time for your reservation</p>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date) } showTimeSelect dateFormat="Pp" />
-          <button id="bttn-make-reservation" name="bttn-make-reservation" onClick={clikedMakeReservation}>
+          <button id="bttn-make-reservation" name="bttn-make-reservation" onClick={clickedMakeReservation}>
             Make Reservation
+          </button>
+          <br />
+          <button id="bttn-cancel" name="bttn-cancel" onClick={clickedCancel}>
+            Discard Changes
           </button>
         </div>
       </div>

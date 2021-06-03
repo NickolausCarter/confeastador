@@ -20,6 +20,10 @@ function UpdateReservation() {
     window.location.assign("/reservation");
   }
 
+  function clickedCancel() {
+    window.location.assign("/reservation");
+  }
+
   const { _id: idParam } = useParams();
   const [startDate, setStartDate] = useState(new Date()); 
   const { loading, error, data } = useQuery(QUERY_RESERVATION, {
@@ -65,6 +69,14 @@ function UpdateReservation() {
             onClick={clickedUpdateReservation}
           >
             Update Reservation
+          </button>
+          <br />
+          <button
+            id="bttn-cancel"
+            name="bttn-mcancel"
+            onClick={clickedCancel}
+          >
+            Discard Changes
           </button>
         </div>
       </div>
