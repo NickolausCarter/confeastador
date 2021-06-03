@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../assets/css/Reservations.css';
 
 import DisplayRestaurants from "../components/DisplayRestaurants";

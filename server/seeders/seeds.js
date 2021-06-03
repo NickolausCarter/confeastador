@@ -23,12 +23,12 @@ db.once("open", async () => {
     reservations: [reservationId1]
   });
   userData.push({
-      username: "natalia",
+      username: "Natalia",
       email: "natalia@gmail.com",
       password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
       reservations: [reservationId2]
     });
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 3; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`; //faker.internet.password();

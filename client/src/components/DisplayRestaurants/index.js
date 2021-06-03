@@ -1,5 +1,5 @@
 import React from "react";
-import { QUERY_RESTAURANTS, QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
+import { QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import '../../assets/css/Search-results.css';
@@ -10,7 +10,7 @@ function DisplayRestaurants() {
   let args = {};
   let showResults = false;
   
-  if(showResultsStr == "false"){
+  if(showResultsStr === "false"){
     showResults = false;
   }else{
     showResults = true;
@@ -25,9 +25,9 @@ function DisplayRestaurants() {
     }
   }
 
-  if (searchString == ""){
+  if (searchString === ""){
     args = {};
-  }else if (is_usZipCode(searchString) == true) {
+  }else if (is_usZipCode(searchString) === true) {
       args = { zipcode: searchString };
   } else  {
       args = { restaurantName: searchString };
