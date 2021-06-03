@@ -31,16 +31,16 @@ const client = new ApolloClient({
 
 export const yelpClient = new ApolloClient({
   request: (operation) => {
-    const token = process.env.YELP_API_KEY;
+    const apiKey = process.env.YELP_API_KEY;
 
     operation.setContext({
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${apiKey}`,
         'accept-language': 'en_US',
       },
     });
   },
-  uri: 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
+  uri: 'https://api.yelp.com/v3/graphql',
 });
 
 function App() {
