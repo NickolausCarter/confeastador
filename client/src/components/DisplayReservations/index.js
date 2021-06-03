@@ -18,43 +18,47 @@ function DisplayReservations() {
         <div className="reservations">
           <h2>Existing Reservations</h2>
           {haveReservations ? (
-              <table>
-                <thead key="thead">
-                  <tr>
-                      <td>
-                        Restaurant
-                      </td>
-                      <td>
-                        Cuisine
-                      </td>
-                      <td>
-                        Date / Time
-                      </td>
-                      <td>
-                        Action
-                      </td>
-                  </tr>
+            <table>
+              <thead key="thead">
+                <tr>
+                  <td>Restaurant</td>
+                  <td>Cuisine</td>
+                  <td>Date / Time</td>
+                  <td>Action</td>
+                  <td>Action</td>
+                </tr>
               </thead>
               <tbody key="tbody">
-              {data.me.reservations.map((oneReservation) => (
-                  <tr key={"__"+oneReservation._id}>
-                      <td>
-                          {oneReservation.restaurant[0].restaurantName}
-                      </td>
-                      <td>
-                          {oneReservation.restaurant[0].cuisine}
-                      </td>
-                      <td>
-                          {oneReservation.reservationDate}
-                      </td>
-                      <td>
-                      <Link to={"/deletereservation/"+oneReservation._id}>Delete</Link>
-                      </td>
+                {data.me.reservations.map((oneReservation) => (
+                  <tr key={"__" + oneReservation._id}>
+                    <td>{oneReservation.restaurant[0].restaurantName}</td>
+                    <td>{oneReservation.restaurant[0].cuisine}</td>
+                    <td>
+                      {new Date(
+                        oneReservation.reservationDate
+                      ).toLocaleDateString()}&nbsp;
+                      {new Date(
+                        oneReservation.reservationDate
+                      ).toLocaleTimeString()}
+                    </td>
+                    <td>
+                      <Link to={"/deletereservation/" + oneReservation._id}>
+                        Delete
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={"/updatereservation/" + oneReservation._id}>
+                        Update
+                      </Link>
+                    </td>
                   </tr>
-              ))}
+                ))}
               </tbody>
-            </table>):(<p>No existing reservations</p>)}
-      </div>
+            </table>
+          ) : (
+            <p>No existing reservations</p>
+          )}
+        </div>
       );
 }
 

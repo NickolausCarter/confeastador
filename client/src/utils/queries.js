@@ -70,3 +70,21 @@ query me {
   }
 }
 `;
+
+export const QUERY_RESERVATION = gql`
+  query reservation($_id: ID!) {
+    reservation(_id: $_id) {
+      _id
+      restaurant {
+        _id
+        restaurantName
+        cuisine
+        zipcode
+        seats
+      }
+      createdAt
+      reservationDate
+      username
+    }
+  }
+`;
