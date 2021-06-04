@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 export const QUERY_RESTAURANTS_YELP = gql`
-  query Search($term: String!, $location: String!) {
+  query search($term: String!, $location: String!) {
     search(term: $term, location: $location) {
       business {
         id
