@@ -7,6 +7,10 @@ const restaurantSchema = new Schema(
       required: 'You need to specify a restaurant!',
       minlength: 1
     },
+    alias: {
+      type: String,
+      unique: true
+    },
     cuisine: {
       type: String
     },

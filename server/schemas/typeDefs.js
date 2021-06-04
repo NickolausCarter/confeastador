@@ -22,6 +22,7 @@ type Reservation {
 type Restaurant {
   _id: String
   restaurantName: String
+  alias: String
   cuisine: String
   zipcode: String
 }
@@ -29,6 +30,7 @@ type Restaurant {
 input RestaurantFilters  {
   restaurantName: String
   ids: ID
+  alias: String
   cuisine: String
   zipcode: String
 }
@@ -44,7 +46,7 @@ type Query {
   user(username: String!): User
   reservations(username: String): [Reservation]
   reservation(_id: ID!): Reservation
-  restaurants(restaurantName: String, cuisine: String, zipcode: String): [Restaurant]
+  restaurants(restaurantName: String, alias: String, cuisine: String, zipcode: String): [Restaurant]
   restaurant(_id: ID!): Restaurant
 }
 
@@ -52,7 +54,7 @@ type Query {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  addRestaurant(restaurantName: String!, cuisine: String!, zipcode: String!): Restaurant
+  addRestaurant(restaurantName: String!, alias: String!, cuisine: String!, zipcode: String!): Restaurant
   addReservation(restaurant: ID!, reservationDate: String!): Reservation
   updateReservation(_id: ID!, reservationDate: String!): Reservation
   removeReservation(_id: ID!): Reservation

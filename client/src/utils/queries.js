@@ -6,6 +6,7 @@ export const QUERY_RESTAURANTS_YELP = gql`
       business {
         id
         name
+        alias
         rating
         price
         categories {

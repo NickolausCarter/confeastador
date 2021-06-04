@@ -17,7 +17,7 @@ function DisplayRestaurants() {
   // update database when search results return
   const updateDatabase = data => {
       addRestaurant({
-      variables: { _id: data.id, restaurantName: data.name, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
+      variables: { restaurantName: data.name, alias: data.alias, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
       })
   };
 
@@ -71,9 +71,9 @@ function DisplayRestaurants() {
             </thead>
             <tbody key="tbody">
               {data.search.business.map((oneRestaurant) => (
-                    <tr key={"/viewrestaurant/"+oneRestaurant.id}>
+                    <tr key={"/viewrestaurant/"+oneRestaurant.alias}>
                         <td>
-                          <Link to={"/viewrestaurant/"+oneRestaurant.id}>{oneRestaurant.name}</Link>
+                          <Link to={"/viewrestaurant/"+oneRestaurant.alias}>{oneRestaurant.name}</Link>
                         </td>
                         <td>
                             {oneRestaurant.categories[0].title}

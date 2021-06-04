@@ -13,7 +13,7 @@ function ViewRestaurant() {
   const [addReservation, { data_mutation }] = useMutation(ADD_RESERVATION);
 
   function clikedMakeReservation(){
-    const restId = localStorage.getItem("restaurant-id");
+    const restId = localStorage.getItem("resherotaurant-id");
     addReservation({ variables: { restaurant: restId, reservationDate: startDate.toString()} });
     window.location.assign("/reservation");
   }
