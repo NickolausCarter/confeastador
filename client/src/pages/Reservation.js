@@ -35,7 +35,7 @@ class Reservation extends React.Component {
         <div className="search">
           <h2>Search</h2>
           <p>Enter a zip code to search.</p>
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <label>
               <input
                 type="text"
@@ -43,7 +43,7 @@ class Reservation extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <button type="submit">Search</button>
+            <button type="submit" onSubmit={this.handleSubmit}>Search</button>
           </form>
           <DisplayRestaurants />
         </div>
