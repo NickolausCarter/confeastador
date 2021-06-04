@@ -12,9 +12,9 @@ function DisplayRestaurants() {
   let args = {};
   let showResults = false;
   
-  const [addRestaurant] = useMutation(ADD_RESTAURANT);
+  const [addRestaurant, { data }] = useMutation(ADD_RESTAURANT);
 
-  // update state based on form input changes
+  // update database when search results return
   const updateDatabase = data => {
     data.search.business.map(rest => {
       addRestaurant({
