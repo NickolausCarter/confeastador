@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import { HttpLink } from 'apollo-link-http';
+import { GraphQLClient } from 'graphql-request';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -29,18 +29,9 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-export const yelpClient = new ApolloClient({
-  request: (operation) => {
-    const apiKey = process.env.API_KEY;
-
-    operation.setContext({
-      headers: {
-        authorization: apiKey,
-        'accept-language': 'en_US',
-      },
-    });
-  },
-  uri: 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
+const yelpApiUrl = 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql';
+export const yelpClient = new GraphQLClient(yelpApiUrl, {
+  headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}` },
 });
 
 function App() {
