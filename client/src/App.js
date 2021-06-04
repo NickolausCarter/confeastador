@@ -35,12 +35,12 @@ export const yelpClient = new ApolloClient({
 
     operation.setContext({
       headers: {
-        authorization: apiKey ? `Bearer ${apiKey}` : '',
+        'Authorization': apiKey ? `Bearer ${apiKey}` : '',
         'accept-language': 'en_US',
       },
     });
   },
-  uri: 'https://aqueous-eyrie-22736.herokuapp.com/https://api.yelp.com/v3/graphql',
+  uri: 'https://api.yelp.com/v3/graphql',
 });
 
 function App() {
