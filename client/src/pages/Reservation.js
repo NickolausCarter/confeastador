@@ -20,6 +20,7 @@ class Reservation extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
 
     localStorage.setItem("restaurantSearchString", this.state.value);
     localStorage.setItem("showRestResults", "true");
