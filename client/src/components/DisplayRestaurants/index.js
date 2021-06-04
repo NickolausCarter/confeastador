@@ -33,10 +33,7 @@ function DisplayRestaurants() {
   } else  {
       args = { name: searchString.toLowerCase() };
   }
-  const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
-    variables: args,
-    client:yelpClient,
-  });
+  const data = yelpClient.request(QUERY_RESTAURANTS_YELP, args, requestHeaders);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
