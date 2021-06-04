@@ -31,7 +31,7 @@ const client = new ApolloClient({
 
 export const yelpClient = new ApolloClient({
   request: (operation) => {
-    const apiKey = process.env.YELP_API_KEY;
+    const apiKey = process.env.API_KEY;
 
     operation.setContext({
       headers: {
