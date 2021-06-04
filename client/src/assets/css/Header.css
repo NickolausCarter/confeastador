@@ -1,6 +1,6 @@
 header {
     background-color: #388087;
-    height: 85px;
+    height: 95px;
     position: fixed;
     z-index: 10;
     top: 0;
@@ -10,16 +10,17 @@ header {
 
 header .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     height: 100%;
 }
 
 header h1 {
     color: #f6f6f2;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
     color: #c2edce;
+    margin-bottom: 10px;
 }
 
 header h1 span {
@@ -38,4 +39,26 @@ header nav a {
 header nav span {
     color: #c2edce;
     margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        background-color: #388087;
+        height: 85px;
+    }
+
+    header .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    header h1 {
+        color: #f6f6f2;
+        font-size: 36px;
+        font-weight: bold;
+        color: #c2edce;
+        margin-bottom: 0;
+    }
 }

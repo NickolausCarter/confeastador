@@ -21,7 +21,7 @@
 }
 
 .search form {
-    width: 25%;
+    width: 100%;
 }
 
 .search input {
@@ -48,4 +48,10 @@
 .reservations table tbody tr td {
     font-size: 18px;
     padding-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .search form {
+        width: 370px;
+    }
 }
