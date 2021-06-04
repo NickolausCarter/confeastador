@@ -35,7 +35,7 @@ export const yelpClient = new ApolloClient({
 
     operation.setContext({
       headers: {
-        'Authorization': apiKey ? `Bearer ${apiKey}` : '',
+        authorization: apiKey,
         'accept-language': 'en_US',
       },
     });
