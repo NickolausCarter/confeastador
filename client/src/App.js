@@ -40,7 +40,7 @@ export const yelpClient = new ApolloClient({
       },
     });
   },
-  uri: 'https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/graphql',
+  uri: 'https://aqueous-eyrie-22736.herokuapp.com/https://api.yelp.com/v3/graphql',
 });
 
 function App() {
