@@ -39,9 +39,7 @@ function DisplayRestaurants() {
   if (searchString === "" || searchString === null){
     args = { term: "restaurants", location: "70130", limit: 50 };
   }else if (is_usZipCode(searchString) == true) {
-      args = { term: "restaurants", location: searchString, limit: 50 };
-  } else  {
-      args = { term: searchString };
+    args = { term: "restaurants", location: searchString, limit: 50 };
   }
   const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
