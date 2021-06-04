@@ -26,10 +26,10 @@ function DisplayRestaurants() {
     }
   }
 
-  if (searchString === ""){
-    args = { term: "restaurants", limit: 50 };
+  if (searchString === "" || searchString === null){
+    args = { term: "restaurants", location: "70130", limit: 50 };
   }else if (is_usZipCode(searchString) == true) {
-      args += { location: searchString };
+      args = { term: "restaurants", location: searchString, limit: 50 };
   } else  {
       args = { term: searchString };
   }
@@ -65,7 +65,7 @@ function DisplayRestaurants() {
                           <Link to={"/viewrestaurant/"+oneRestaurant.id}>{oneRestaurant.name}</Link>
                         </td>
                         <td>
-                            {oneRestaurant.categories.title[0]}
+                            {oneRestaurant.categories[0].title}
                         </td>
                         <td>
                             {oneRestaurant.location.postal_code}
