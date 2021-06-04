@@ -12,15 +12,13 @@ function DisplayRestaurants() {
   let args = {};
   let showResults = false;
   
-  const [addRestaurant, { data }] = useMutation(ADD_RESTAURANT);
+  const [addRestaurant, { restData }] = useMutation(ADD_RESTAURANT);
 
   // update database when search results return
   const updateDatabase = data => {
-    data.search.business.map(rest => {
       addRestaurant({
-      variables: { restaurantName: rest.name, cuisine: rest.categories[0].title, zipcode: rest.location.postal_code },
+      variables: { restaurantName: data.name, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
       })
-    })
   };
 
   if(showResultsStr == "false"){
@@ -51,7 +49,7 @@ function DisplayRestaurants() {
   });
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
-  updateDatabase(data);
+  data.search.business.map(data => updateDatabase(data));
 
       return (
         <div className="restaurant">
