@@ -70,3 +70,15 @@ export const UPDATE_RESERVATION = gql`
     }
   }
 `;
+
+export const ADD_RESTAURANT = gql`
+  mutation addRestaurant ($restaurantName: String!, $cuisine: String!, $zipcode: String!, $seats: Int) {
+    addRestaurant (restaurantName: $restaurantName, cuisine: $cuisine, zipcode: $zipcode, seats: $seats) {
+      _id
+      restaurantName
+      cuisine
+      zipcode
+      seats
+    }
+  }
+`;

@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import '../../assets/css/Search-results.css';
 import { yelpClient } from "../../App";
+import { ADD_RESTAURANT } from "../../utils/mutations"
 
 function DisplayRestaurants() {
   const searchString = localStorage.getItem("restaurantSearchString");
@@ -11,6 +12,17 @@ function DisplayRestaurants() {
   let args = {};
   let showResults = false;
   
+  const [addRestaurant] = useMutation(ADD_RESTAURANT);
+
+  // update state based on form input changes
+  const updateDatabase = data => {
+    data.search.business.map(rest => {
+      addRestaurant({
+      variables: { restaurantName: rest.name, cuisine: rest.categories[0].title, zipcode: rest.location.postal_code },
+      })
+    })
+  };
+
   if(showResultsStr == "false"){
     showResults = false;
   }else{
@@ -39,6 +51,7 @@ function DisplayRestaurants() {
   });
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+  updateDatabase(data);
 
       return (
         <div className="restaurant">

@@ -32,7 +32,7 @@ class Reservation extends React.Component {
         <DisplayReservations />
         <div className="search">
           <h2>Search</h2>
-          <p>Enter a specific restaurant name or your ZIP Code</p>
+          <p>Enter a zip code to search.</p>
           <form onSubmit={this.handleSubmit}>
             <label>
               <input
