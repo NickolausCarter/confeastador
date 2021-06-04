@@ -26,12 +26,12 @@ function DisplayRestaurants() {
     }
   }
 
-  if (searchString == ""){
+  if (searchString === ""){
     args = { term: "restaurants", limit: 50 };
   }else if (is_usZipCode(searchString) == true) {
-      args += { postal_code: searchString };
+      args += { location: searchString };
   } else  {
-      args = { name: searchString.toLowerCase() };
+      args = { name: searchString };
   }
   const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
@@ -62,13 +62,13 @@ function DisplayRestaurants() {
               {data.search.business.map((oneRestaurant) => (
                     <tr key={"/viewrestaurant/"+oneRestaurant.id}>
                         <td>
-                          <Link to={"/viewrestaurant/"+oneRestaurant.id}>{oneRestaurant.name.toLowerCase()}</Link>
+                          <Link to={"/viewrestaurant/"+oneRestaurant.id}>{oneRestaurant.name}</Link>
                         </td>
                         <td>
                             {oneRestaurant.categories.title[0]}
                         </td>
                         <td>
-                            {oneRestaurant.postal_code}
+                            {oneRestaurant.location.postal_code}
                         </td>
                     </tr>
               ))}
