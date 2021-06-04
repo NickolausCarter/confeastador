@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from "react-router-dom";
-import { QUERY_RESTAURANT } from "../utils/queries";
-import { useQuery } from "@apollo/react-hooks";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { REMOVE_RESERVATION } from "../utils/mutations";
 import { useMutation } from "@apollo/react-hooks";

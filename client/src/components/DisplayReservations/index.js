@@ -39,7 +39,7 @@ function DisplayReservations() {
                       ).toLocaleDateString()}&nbsp;
                       {new Date(
                         oneReservation.reservationDate
-                      ).toLocaleTimeString()}
+                      ).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </td>
                     <td>
                       <Link to={"/deletereservation/" + oneReservation._id}>

@@ -14,6 +14,8 @@ const Login = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     localStorage.setItem("current_email",formState.email);
+    console.log(">>>>>>>>>>>>>>>>>>>");
+    console.log(formState);
 
     setFormState({
       ...formState,
