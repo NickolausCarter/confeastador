@@ -28,6 +28,15 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
+const [addRestaurant, { restData }] = useMutation(ADD_RESTAURANT);
+
+  // update database when search results return
+  // const updateDatabase = data => {
+  //     addRestaurant({
+  //     variables: { restaurantName: data.name, alias: data.alias, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
+  //     })
+  // };
+
 function App() {
   return (
     <ApolloProvider client={client}>
