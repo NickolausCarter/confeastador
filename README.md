@@ -11,8 +11,6 @@
 - [License](#license)
 - [Disclaimer](#disclaimer)
 - [Contribution](#contribution)
-- [Test](#test)
-- [Questions](#questions)
 
 ## Project Description
 
