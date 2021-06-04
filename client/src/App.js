@@ -15,7 +15,7 @@ import DeleteReservation from "./pages/DeleteReservation";
 import UpdateReservation from "./pages/UpdateReservation";
 import NoMatch from "./pages/NoMatch";
 import { ADD_RESTAURANT } from "./utils/mutations";
-import { QUERY_RESTAURANTS_YELP } from "./utils/mutations";
+import { QUERY_RESTAURANTS_YELP } from "./utils/queries";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 const client = new ApolloClient({
@@ -51,7 +51,7 @@ function startApp() {
     // update database when search results return
   const updateDatabase = data => {
       addRestaurant({
-      variables: { restaurantName: data.name, alias: data.alias, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
+      variables: { restaurantName: data.name, alias: data.alias, cuisine: data.categories[0].title, zipcode: data.location.postal_code, seats: 20 },
       })
   };
   const zips = ["76542", "78737", "75233", "70130", "32301", "78228"];
