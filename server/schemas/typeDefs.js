@@ -20,7 +20,7 @@ type Reservation {
 }
 
 type Restaurant {
-  _id: ID
+  _id: String
   restaurantName: String
   cuisine: String
   zipcode: String
