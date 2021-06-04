@@ -35,7 +35,7 @@ function DisplayRestaurants() {
   }
   const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
-    client:{ yelpClient },
+    client:yelpClient,
   });
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
