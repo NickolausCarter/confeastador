@@ -30,8 +30,10 @@ const client = new ApolloClient({
   },
   uri: "/graphql",
 });
-function startApp() {
 
+
+  
+function App() {
   const yelpClient = new ApolloClient({
     request: (operation) => {
       const apiKey = process.env.REACT_APP_YELP_API_KEY;
@@ -66,9 +68,7 @@ function startApp() {
     if (error) return `Error! ${error.message}`;
     data.search.business.map(data => updateDatabase(data));
   }
-}
 
-function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -88,6 +88,6 @@ function App() {
     </ApolloProvider>
   );
 }
-startApp();
+
 
 export default App;
