@@ -15,7 +15,6 @@ class Reservation extends React.Component {
   }
 
   handleChange(event) {
-    event.preventDefault();
     this.setState({ value: event.target.value });
 
   }
@@ -25,7 +24,6 @@ class Reservation extends React.Component {
 
     localStorage.setItem("restaurantSearchString", this.state.value);
     localStorage.setItem("showRestResults", "true");
-    //event.preventDefault();
   }
 
   render() {

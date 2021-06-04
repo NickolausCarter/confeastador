@@ -13,7 +13,7 @@ function ViewRestaurant() {
   const [addReservation, { data_mutation }] = useMutation(ADD_RESERVATION);
 
   function clikedMakeReservation(){
-    const restId = localStorage.getItem("restaurant-alias");
+    const restId = localStorage.getItem("restaurant-id");
     addReservation({ variables: { restaurant: restId, reservationDate: startDate.toString()} });
     window.location.assign("/reservation");
   }
@@ -26,7 +26,7 @@ function ViewRestaurant() {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-  localStorage.setItem("restaurant-alias", data.restaurant.alias);
+  localStorage.setItem("restaurant-id", data.restaurant._id);
 
   return (
     <div className='restaurant-info'>
