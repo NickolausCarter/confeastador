@@ -31,7 +31,7 @@ function DisplayRestaurants() {
   }else if (is_usZipCode(searchString) == true) {
       args += { location: searchString };
   } else  {
-      args = { name: searchString };
+      args = { term: searchString };
   }
   const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
     variables: args,
