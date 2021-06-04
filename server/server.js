@@ -1,4 +1,5 @@
 // Import module to serve up the React front-end code in production
+require('dotenv').config();
 const path = require("path");
 
 const express = require('express');
