@@ -1,5 +1,28 @@
 import gql from "graphql-tag";
 
+export const QUERY_RESTAURANTS_YELP = gql`
+  query search($term: String, $location: String) {
+    search(term: $term, location: $location) {
+      business {
+        id
+        name
+        alias
+        rating
+        price
+        categories {
+          title
+        }
+        photos
+        location {
+          address1
+          state
+          postal_code
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_RESTAURANT = gql`
   query restaurant($_id:ID!) {
     restaurant(_id:$_id) {
