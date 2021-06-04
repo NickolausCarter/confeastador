@@ -48,43 +48,36 @@ db.once("open", async () => {
     restaurantName: "Dans",
     cuisine: "Burger and fries",
     zipcode: "78723",
-    seats: 6,
   });
   restaurantData.push({
     restaurantName: "Carolines",
     cuisine: "Beef Steak Ragu",
     zipcode: "78720",
-    seats: 8,
   });
   restaurantData.push({
     restaurantName: "Razoos",
     cuisine: "Crawfish Etoufee",
     zipcode: "78660",
-    seats: 4,
   });
   restaurantData.push({
     restaurantName: "La Mia Cucina",
     cuisine: "Italian",
     zipcode: "78727",
-    seats: 12
   });
   restaurantData.push({
     restaurantName: "El Bucanero",
     cuisine: "Seafood",
     zipcode: "78717",
-    seats: 10,
   });
   restaurantData.push({
     restaurantName: "Super Tacos",
     cuisine: "Mexican",
     zipcode: "78727",
-    seats: 12
   });
   restaurantData.push({
     restaurantName: "Luigi's",
     cuisine: "Italian",
     zipcode: "78737",
-    seats: 10,
   });
 
   

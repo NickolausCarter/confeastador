@@ -34,7 +34,6 @@ function ViewRestaurant() {
         <p><span>Restaurant:</span> {data.restaurant.restaurantName}</p>
         <p><span>Cuisine:</span> {data.restaurant.cuisine}</p>
         <p><span>ZIP Code:</span> {data.restaurant.zipcode}</p>
-        <p><span>Number of seats:</span> {data.restaurant.seats}</p>
         <hr></hr>
         <div className='selections'>
           <p>Select a date and time for your reservation</p>

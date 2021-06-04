@@ -15,10 +15,6 @@ const restaurantSchema = new Schema(
       required: true,
       minlength: 5,
       maxlength: 5
-    },
-    seats: {
-        type: Number,
-        required: true
     }
   },
   {

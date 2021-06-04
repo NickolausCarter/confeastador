@@ -62,7 +62,6 @@ export const UPDATE_RESERVATION = gql`
         restaurantName
         cuisine
         zipcode
-        seats
       }
       createdAt
       reservationDate

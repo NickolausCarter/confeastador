@@ -29,7 +29,6 @@ export const QUERY_RESTAURANT = gql`
       restaurantName
       cuisine
       zipcode
-      seats
     }
   }
 `;
@@ -39,19 +38,16 @@ export const QUERY_RESTAURANTS_ARGS = gql`
     $restaurantName: String
     $cuisine: String
     $zipcode: String
-    $seats: Int
   ) {
     restaurants(
       restaurantName: $restaurantName
       cuisine: $cuisine
       zipcode: $zipcode
-      seats: $seats
     ) {
       _id
       restaurantName
       cuisine
       zipcode
-      seats
     }
   }
 `;
@@ -85,8 +81,7 @@ query me {
       restaurant{
         _id
       	restaurantName
-        cuisine 
-        seats
+        cuisine
       }
     }
   }
@@ -102,7 +97,6 @@ export const QUERY_RESERVATION = gql`
         restaurantName
         cuisine
         zipcode
-        seats
       }
       createdAt
       reservationDate

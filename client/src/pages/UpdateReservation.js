@@ -43,9 +43,6 @@ function UpdateReservation() {
           <span>ZIP Code:</span> {data.reservation.restaurant[0].zipcode}
         </p>
         <p>
-          <span>Number of seats:</span> {data.reservation.restaurant[0].seats}
-        </p>
-        <p>
           <span>Current:</span> {new Date(data.reservation.reservationDate).toLocaleDateString()}
           &nbsp;
           {new Date(data.reservation.reservationDate).toLocaleTimeString()}
