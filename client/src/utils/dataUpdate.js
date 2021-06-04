@@ -3,7 +3,7 @@ import { ADD_RESTAURANT } from "./mutations";
 import { QUERY_RESTAURANTS_YELP } from "./queries";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-export function DataUpdate(query) {
+function DataUpdate(query) {
 
   const yelpClient = new ApolloClient({
     request: (operation) => {
@@ -36,3 +36,5 @@ export function DataUpdate(query) {
   if (error) return `Error! ${error.message}`;
   data.search.business.map(data => updateDatabase(data));
 };
+
+export default DataUpdate;

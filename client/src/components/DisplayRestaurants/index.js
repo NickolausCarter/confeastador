@@ -2,7 +2,7 @@ import React from "react";
 import { QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
-import { DataUpdate } from "../../utils/DataUpdate";
+import DataUpdate from "../../utils/DataUpdate";
 import '../../assets/css/Search-results.css';
 
 function DisplayRestaurants() {
