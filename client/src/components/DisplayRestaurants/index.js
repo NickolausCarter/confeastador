@@ -1,6 +1,6 @@
 import React from "react";
 import { QUERY_RESTAURANTS_YELP } from "../../utils/queries";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import '../../assets/css/Search-results.css';
 import { yelpClient } from "../../App";
