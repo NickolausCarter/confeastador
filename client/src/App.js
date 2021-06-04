@@ -56,18 +56,14 @@ function App() {
       variables: { restaurantName: data.name, alias: data.alias, cuisine: data.categories[0].title, zipcode: data.location.postal_code, seats: 20 },
       })
   };
-  const zips = ["76542", "78737", "75233", "70130", "32301", "78228"];
-  for (let i = 0; i < zips.length; i++ ) {
-
-    const args = { term: "restaurants", location: zips[i], limit: 50 };
-    const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
-      variables: args,
-      client: yelpClient,
-    });
-    if (loading) return "Loading...";
-    if (error) return `Error! ${error.message}`;
-    data.search.business.map(data => updateDatabase(data));
-  }
+  const args = { term: "restaurants", location: "76542", limit: 50 };
+  const { loading, error, data } = useQuery(QUERY_RESTAURANTS_YELP, {
+    variables: args,
+    client: yelpClient,
+  });
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+  data.search.business.map(data => updateDatabase(data));
 
   return (
     <ApolloProvider client={client}>
