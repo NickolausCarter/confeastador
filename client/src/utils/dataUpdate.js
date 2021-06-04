@@ -3,7 +3,7 @@ import { ADD_RESTAURANT } from "./mutations";
 import { QUERY_RESTAURANTS_YELP } from "./queries";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-export function dataUpdate(query) {
+export function DataUpdate(query) {
 
   const yelpClient = new ApolloClient({
     request: (operation) => {
