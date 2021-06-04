@@ -15,6 +15,10 @@ header .container {
     height: 100%;
 }
 
+header .container img {
+    display: none;
+}
+
 header h1 {
     color: #f6f6f2;
     font-size: 24px;
@@ -52,6 +56,17 @@ header nav span {
         flex-direction: row;
         justify-content: space-between;
         padding: 0 10px;
+    }
+
+    header .container .wrapper a {
+        display: flex;
+        align-items: center;
+    }
+
+    header .container img {
+        display: block;
+        height: 55px;
+        margin-right: 10px;
     }
 
     header h1 {

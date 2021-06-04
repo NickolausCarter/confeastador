@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 import '../../assets/css/Header.css';
+import logo from '../../assets/images/logo192.png';
 
 const Header = () => {
   const logout = (event) => {
@@ -12,9 +13,12 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <Link to="/">
-          <h1>con<span>FEAST</span>ador</h1>
-        </Link>
+        <div class="wrapper">
+          <Link to="/">
+            <img src={logo}></img>
+            <h1>con<span>FEAST</span>ador</h1>
+          </Link>
+        </div>
 
         <nav>
           {Auth.loggedIn() ? (
