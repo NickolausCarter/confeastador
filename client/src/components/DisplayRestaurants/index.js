@@ -17,7 +17,7 @@ function DisplayRestaurants() {
   // update database when search results return
   const updateDatabase = data => {
       addRestaurant({
-      variables: { restaurantName: data.name, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
+      variables: { _id: data.id, restaurantName: data.name, cuisine: data.categories[0].title, zipcode: data.location.postal_code },
       })
   };
 
