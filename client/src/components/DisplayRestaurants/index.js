@@ -33,9 +33,9 @@ function DisplayRestaurants() {
   } else  {
       args = { name: searchString.toLowerCase() };
   }
-  const data = yelpClient.request(QUERY_RESTAURANTS_YELP, args, requestHeaders);
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  const data = yelpClient.request(QUERY_RESTAURANTS_YELP, args);
+  // if (loading) return "Loading...";
+  // if (error) return `Error! ${error.message}`;
 
       return (
         <div className="restaurant">
