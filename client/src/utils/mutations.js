@@ -52,3 +52,21 @@ export const REMOVE_RESERVATION = gql`
     }
   }
 `;
+
+export const UPDATE_RESERVATION = gql`
+  mutation updateReservation ($_id: ID!, $reservationDate: String!){
+    updateReservation(_id: $_id, reservationDate: $reservationDate){
+      _id
+      restaurant {
+        _id
+        restaurantName
+        cuisine
+        zipcode
+        seats
+      }
+      createdAt
+      reservationDate
+      username
+    }
+  }
+`;

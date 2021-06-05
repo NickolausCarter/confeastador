@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+import '../../assets/css/Header.css';
+import logo from '../../assets/images/logo192.png';
 
 const Header = () => {
   const logout = (event) => {
@@ -9,16 +11,19 @@ const Header = () => {
   };
   const currEmail = localStorage.getItem("current_email");
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>conFEASTador</h1>
-        </Link>
+    <header>
+      <div className="container">
+        <div class="wrapper">
+          <Link to="/">
+            <img src={logo}></img>
+            <h1>con<span>FEAST</span>ador</h1>
+          </Link>
+        </div>
 
-        <nav className="text-center">
+        <nav>
           {Auth.loggedIn() ? (
             <>
-              Welcome: {currEmail}
+              <span>Welcome: {currEmail}</span>
               <a href="/" onClick={logout}>
                 Logout
               </a>

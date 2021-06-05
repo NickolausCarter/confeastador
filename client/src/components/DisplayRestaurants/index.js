@@ -1,7 +1,8 @@
 import React from "react";
-import { QUERY_RESTAURANTS, QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
+import { QUERY_RESTAURANTS_ARGS } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
+import '../../assets/css/Search-results.css';
 
 function DisplayRestaurants() {
   const searchString = localStorage.getItem("restaurantSearchString");
@@ -9,7 +10,7 @@ function DisplayRestaurants() {
   let args = {};
   let showResults = false;
   
-  if(showResultsStr == "false"){
+  if(showResultsStr === "false"){
     showResults = false;
   }else{
     showResults = true;
@@ -24,9 +25,9 @@ function DisplayRestaurants() {
     }
   }
 
-  if (searchString == ""){
+  if (searchString === ""){
     args = {};
-  }else if (is_usZipCode(searchString) == true) {
+  }else if (is_usZipCode(searchString) === true) {
       args = { zipcode: searchString };
   } else  {
       args = { restaurantName: searchString };
@@ -38,39 +39,40 @@ function DisplayRestaurants() {
   if (error) return `Error! ${error.message}`;
 
       return (
-        <div name="restaurant">
+        <div className="restaurant">
+          <hr></hr>
           {showResults ? (
           <table>
             <thead key="thead">
               <tr>
-                  <td>
-                    Restaurant Name
-                  </td>
-                  <td>
-                    Cuisine
-                  </td>
-                  <td>
-                    Location Zipcode
-                  </td>
+                <td>
+                  Restaurant Name
+                </td>
+                <td>
+                  Cuisine
+                </td>
+                <td>
+                  ZIP Code
+                </td>
               </tr>
-          </thead>
-          <tbody key="tbody">
-        {data.restaurants.map((oneRestaurant) => (
-              <tr key={"/viewrestaurant/"+oneRestaurant._id}>
-                  <td>
-                    <Link to={"/viewrestaurant/"+oneRestaurant._id}>{oneRestaurant.restaurantName}</Link>
-                  </td>
-                  <td>
-                      {oneRestaurant.cuisine} 
-                  </td>
-                  <td>
-                      {oneRestaurant.zipcode}
-                  </td>
-              </tr>
-        ))}
-          </tbody>
-        </table>):(<p></p>)}
-      </div>
+            </thead>
+            <tbody key="tbody">
+              {data.restaurants.map((oneRestaurant) => (
+                    <tr key={"/viewrestaurant/"+oneRestaurant._id}>
+                        <td>
+                          <Link to={"/viewrestaurant/"+oneRestaurant._id}>{oneRestaurant.restaurantName}</Link>
+                        </td>
+                        <td>
+                            {oneRestaurant.cuisine}
+                        </td>
+                        <td>
+                            {oneRestaurant.zipcode}
+                        </td>
+                    </tr>
+              ))}
+            </tbody>
+          </table>):(<p></p>)}
+        </div>
       );
 }
 

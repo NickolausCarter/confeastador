@@ -23,12 +23,12 @@ db.once("open", async () => {
     reservations: [reservationId1]
   });
   userData.push({
-      username: "natalia",
+      username: "Natalia",
       email: "natalia@gmail.com",
       password: `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`,
       reservations: [reservationId2]
     });
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 3; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = `$2b$10$v4dlqHhk8IDYmBr7D4zdjuTKDFgjhcjRQ4lkjQYzACabRGtkD.3bO`; //faker.internet.password();
@@ -100,13 +100,13 @@ db.once("open", async () => {
     {
       _id: mongoose.Types.ObjectId(reservationId1),
       restaurant: [createdRestaurants.ops[0]._id],
-      reservationDate: "05/31/2021",
+      reservationDate: "Jun 05 2021 18:30:00 GMT-0500 (Central Daylight Time)",
       username: createdUsers.ops[0].username,
     },
     {
       _id: mongoose.Types.ObjectId(reservationId2),
       restaurant: [createdRestaurants.ops[1]._id],
-      reservationDate: "06/01/2021",
+      reservationDate: "Jun 05 2021 19:30:00 GMT-0500 (Central Daylight Time)",
       username: createdUsers.ops[1].username,
     },
   ];

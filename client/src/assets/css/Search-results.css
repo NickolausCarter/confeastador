@@ -1,0 +1,18 @@
+.restaurant table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.restaurant table thead {
+    font-weight: bold;
+}
+
+.restaurant table thead tr td {
+    height: 50px;
+    font-size: 24px;
+}
+
+.restaurant table tbody tr td {
+    font-size: 18px;
+    padding-bottom: 8px;
+}
