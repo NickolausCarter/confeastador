@@ -15,7 +15,7 @@ const Header = () => {
       <div className="container">
         <div class="wrapper">
           <Link to="/">
-            <img src={logo}></img>
+            <img src={logo} alt="website logo"></img>
             <h1>con<span>FEAST</span>ador</h1>
           </Link>
         </div>

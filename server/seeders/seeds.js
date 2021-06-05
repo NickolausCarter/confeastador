@@ -2,7 +2,7 @@ const faker = require("faker");
 const mongoose = require("mongoose");
 const db = require("../config/connection");
 const { User, Reservation, Restaurant } = require("../models");
-const dateFormat = require("../utils/dateFormat");
+
 
 db.once("open", async () => {
   await User.deleteMany({});
