@@ -10,7 +10,9 @@ function Home() {
   }
   return (
       <div className='homepage'>
-        <h1 className="content">Find a<br></br>restaurant for<br></br>any occasion.</h1>
+        <h1 className="content">
+          Find a restaurant for any occasion.
+        </h1>
       </div>
     );
 }
