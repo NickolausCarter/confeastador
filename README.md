@@ -92,6 +92,6 @@ Made by:
 **[Eduardo Castro](https://github.com/mambru82)** - Back-End, Express.js, MongoDB Setup and Design, Debugging\
 **[Martha Gamez](https://github.com/marth121)** - Front-End, React, Site Functionality, Debugging\
 **[Thomas Curry](https://github.com/curryduz)** - Back-End, Database Seeds\
-**[Averie Beltran](https://github.com/averiebeltran)** - CSS Styling & UI Design\
+**[Averie Beltran](https://github.com/averiebeltran)** - CSS Styling & UI Design
 
 &copy; 2021 conFEASTador
