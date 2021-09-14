@@ -5,7 +5,7 @@
 - [Project Description](#project-description)
 - [What We Learned](#what-we-learned)
 - [Built With](#built-with)
-- [How To Use Lab Manager](#how-to-use-lab-manager)
+- [How To Use conFEASTador](#how-to-confeastador)
 - [Description of Typical Work Flow](#description-of-typical-work-flow)
 - [Website](#website)
 - [License](#license)
